@@ -1,0 +1,3470 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b0b0b">
+<title>MecaNathan Gestion V3</title>
+
+<style>
+:root{
+--bg:#0b0b0b;
+--panel:#151515;
+--panel2:#1e1e1e;
+--red:#e30613;
+--text:#fff;
+--muted:#aaa;
+--border:#2c2c2c;
+--green:#49c875;
+--orange:#f0ad4e
+}
+
+*{box-sizing:border-box}
+
+body{
+margin:0;
+background:var(--bg);
+color:var(--text);
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif
+}
+
+button,input,select,textarea{font:inherit}
+
+button{cursor:pointer;border:0}
+
+.sidebar{
+position:fixed;
+left:0;
+top:0;
+bottom:0;
+width:250px;
+background:#101010;
+border-right:1px solid var(--border);
+padding:24px 16px;
+z-index:5
+}
+
+.brand{
+font-size:22px;
+font-weight:800;
+margin:4px 10px 28px
+}
+
+.brand span{color:var(--red)}
+
+.brand small{
+display:block;
+color:var(--muted);
+font-size:10px;
+margin-top:5px
+}
+
+nav button{
+display:block;
+width:100%;
+padding:12px 14px;
+margin:3px 0;
+background:transparent;
+color:#aaa;
+text-align:left;
+border-radius:9px;
+font-weight:600
+}
+
+nav button.active,nav button:hover{
+background:#241012;
+color:#fff
+}
+
+nav button.active{border-left:3px solid var(--red)}
+
+.main{
+margin-left:250px;
+padding:28px;
+max-width:1500px
+}
+
+.page{display:none}
+.page.active{display:block}
+
+.top{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:20px
+}
+
+.top h1{margin:0;font-size:28px}
+.top p{margin:5px 0;color:var(--muted)}
+
+.primary{
+background:var(--red);
+color:#fff;
+padding:11px 16px;
+border-radius:9px;
+font-weight:800
+}
+
+.secondary{
+background:var(--panel2);
+border:1px solid var(--border);
+color:#fff;
+padding:9px 13px;
+border-radius:9px;
+font-weight:700
+}
+
+.danger{
+background:#391014;
+color:#ff858b;
+padding:8px 10px;
+border-radius:8px
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:14px
+}
+
+.card,.section{
+background:var(--panel);
+border:1px solid var(--border);
+border-radius:14px;
+padding:18px
+}
+
+.label{font-size:13px;color:var(--muted)}
+.value{font-size:26px;font-weight:800;margin-top:7px}
+.redtxt{color:var(--red)}
+
+.grid{
+display:grid;
+grid-template-columns:1.4fr 1fr;
+gap:18px;
+margin-top:18px
+}
+
+.section h2{font-size:17px;margin:0 0 15px}
+
+.empty{
+text-align:center;
+color:var(--muted);
+padding:25px;
+border:1px dashed #333;
+border-radius:10px
+}
+
+.quick{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px
+}
+
+.quick button{
+background:var(--panel2);
+border:1px solid var(--border);
+color:#fff;
+text-align:left;
+padding:14px;
+border-radius:10px
+}
+
+.quick span{
+display:block;
+color:var(--muted);
+font-size:12px;
+margin-top:3px
+}
+
+.toolbar{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+margin-bottom:14px
+}
+
+.field{
+width:100%;
+background:#101010;
+border:1px solid var(--border);
+color:#fff;
+border-radius:9px;
+padding:10px 11px
+}
+
+textarea.field{min-height:90px;resize:vertical}
+
+.search{
+flex:1;
+min-width:220px
+}
+
+.table-wrap{overflow:auto}
+
+.table{
+width:100%;
+border-collapse:collapse;
+min-width:700px
+}
+
+.table th,.table td{
+padding:11px 9px;
+border-bottom:1px solid var(--border);
+text-align:left
+}
+
+.table th{
+font-size:11px;
+color:var(--muted);
+text-transform:uppercase
+}
+
+.ok{color:var(--green);font-weight:800}
+.low{color:var(--orange);font-weight:800}
+.zero{color:#ff6972;font-weight:800}
+
+.badge{
+padding:5px 8px;
+border-radius:20px;
+background:#292929;
+font-size:12px
+}
+
+.badge.wait{background:#33270f;color:#f4be67}
+.badge.done{background:#102719;color:#7be29b}
+.badge.cancel{background:#3a1014;color:#ff8c92}
+
+.modal{
+position:fixed;
+inset:0;
+background:#000b;
+display:none;
+align-items:flex-end;
+justify-content:center;
+padding:14px;
+z-index:20
+}
+
+.modal.show{display:flex}
+
+.modalbox{
+background:#151515;
+border:1px solid var(--border);
+border-radius:16px;
+width:min(760px,100%);
+max-height:92vh;
+overflow:auto;
+padding:20px
+}
+
+.modalhead{
+display:flex;
+justify-content:space-between;
+align-items:center
+}
+
+.modalhead h2{margin:0;font-size:20px}
+
+.close{
+background:#292929;
+color:#fff;
+width:34px;
+height:34px;
+border-radius:50%
+}
+
+.form{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:12px;
+margin-top:16px
+}
+
+.group label{
+display:block;
+color:var(--muted);
+font-size:12px;
+margin-bottom:6px
+}
+
+.full{grid-column:1/-1}
+
+.actions{
+display:flex;
+justify-content:flex-end;
+gap:9px;
+margin-top:18px
+}
+
+.lines{margin-top:12px}
+
+.line{
+display:grid;
+grid-template-columns:2fr 70px 95px 35px;
+gap:7px;
+margin-bottom:8px;
+align-items:center
+}
+
+.customline{
+grid-column:1/-1;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:7px
+}
+
+.total{
+text-align:right;
+font-size:20px;
+font-weight:800;
+margin-top:12px
+}
+
+.hint{
+font-size:12px;
+color:var(--muted);
+margin-top:8px
+}
+
+.client-box{
+background:#101010;
+border:1px solid var(--border);
+border-radius:10px;
+padding:12px;
+margin-top:10px
+}
+
+.vehicle-list{
+display:grid;
+gap:8px;
+margin-top:12px
+}
+
+.vehicle-card{
+background:#1b1b1b;
+border:1px solid var(--border);
+border-radius:9px;
+padding:11px
+}
+
+.vehicle-card b{display:block}
+.vehicle-card small{color:var(--muted)}
+
+.mobile{display:none}
+
+@media(max-width:900px){
+
+.sidebar{display:none}
+
+.main{
+margin:0;
+padding:18px 15px 88px
+}
+
+.cards{
+grid-template-columns:1fr 1fr;
+gap:10px
+}
+
+.grid{grid-template-columns:1fr}
+
+.top h1{font-size:23px}
+
+.top .primary{display:none}
+
+.mobile{
+display:flex;
+position:fixed;
+bottom:0;
+left:0;
+right:0;
+background:#111;
+border-top:1px solid var(--border);
+z-index:10;
+justify-content:space-around;
+padding:6px 4px env(safe-area-inset-bottom)
+}
+
+.mobile button{
+background:none;
+color:#999;
+font-size:10px
+}
+
+.mobile button.active{color:#fff}
+
+.mobile i{
+font-style:normal;
+display:block;
+font-size:18px
+}
+
+.form{grid-template-columns:1fr}
+.full{grid-column:auto}
+
+.line{
+grid-template-columns:1fr 60px 85px 34px
+}
+
+.customline{grid-column:1/-1}
+}
+</style>
+</head>
+
+<body>
+
+<aside class="sidebar">
+
+<div class="brand">
+Meca<span>Nathan</span>
+<small>GESTION • MÉCANIQUE AUTOMOBILE</small>
+</div>
+
+<nav>
+
+<button class="active" data-page="dashboard">🏠 &nbsp; Tableau de bord</button>
+<button data-page="clients">👥 &nbsp; Clients</button>
+<button data-page="vehicules">🚗 &nbsp; Véhicules</button>
+<button data-page="interventions">🔧 &nbsp; Interventions</button>
+<button data-page="magasin">📦 &nbsp; Magasin</button>
+<button data-page="devis">📄 &nbsp; Devis</button>
+<button data-page="factures">🧾 &nbsp; Factures</button>
+<button data-page="planning">📅 &nbsp; Planning</button>
+<button data-page="settings">⚙️ &nbsp; Paramètres</button>
+
+</nav>
+</aside>
+
+
+<main class="main">
+
+<!-- DASHBOARD -->
+
+<section class="page active" id="dashboard">
+
+<div class="top">
+<div>
+<h1>Tableau de bord</h1>
+<p>Bienvenue sur MecaNathan Gestion.</p>
+</div>
+
+<button class="primary" onclick="openQuote()">+ Nouveau devis</button>
+</div>
+
+<div class="cards">
+
+<div class="card">
+<div class="label">CA du mois</div>
+<div class="value" id="ca">0,00 €</div>
+</div>
+
+<div class="card">
+<div class="label">Devis en attente</div>
+<div class="value" id="pending">0</div>
+</div>
+
+<div class="card">
+<div class="label">Factures impayées</div>
+<div class="value redtxt" id="unpaid">0,00 €</div>
+</div>
+
+<div class="card">
+<div class="label">Articles en stock</div>
+<div class="value" id="stockcount">0</div>
+</div>
+
+</div>
+
+<div class="grid">
+
+<div class="section">
+<h2>Derniers devis</h2>
+<div id="recent"></div>
+</div>
+
+<div class="section">
+<h2>Accès rapide</h2>
+
+<div class="quick">
+
+<button onclick="openClient()">
+<b>👤 Nouveau client</b>
+<span>Créer une fiche client</span>
+</button>
+
+<button onclick="go('magasin');openPart()">
+<b>📦 Nouvelle pièce</b>
+<span>Créer une référence</span>
+</button>
+
+<button onclick="openQuote()">
+<b>📄 Nouveau devis</b>
+<span>Choisir un client et son véhicule</span>
+</button>
+
+<button onclick="go('factures')">
+<b>🧾 Factures</b>
+<span>Suivre les règlements</span>
+</button>
+
+</div>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CLIENTS -->
+
+<section class="page" id="clients">
+
+<div class="top">
+
+<div>
+<h1>Clients</h1>
+<p>Clients et véhicules associés.</p>
+</div>
+
+<button class="primary" onclick="openClient()">+ Nouveau client</button>
+
+</div>
+
+<div class="section">
+
+<div class="toolbar">
+
+<input
+class="field search"
+id="clientSearch"
+placeholder="🔍 Rechercher un nom, téléphone ou immatriculation..."
+oninput="renderClients()">
+
+</div>
+
+<div class="table-wrap">
+
+<table class="table">
+
+<thead>
+<tr>
+<th>Client</th>
+<th>Téléphone</th>
+<th>E-mail</th>
+<th>Véhicules</th>
+<th></th>
+</tr>
+</thead>
+
+<tbody id="clientBody"></tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- VEHICULES -->
+
+<section class="page" id="vehicules">
+
+<div class="top">
+
+<div>
+<h1>Véhicules</h1>
+<p>Tous les véhicules de tes clients.</p>
+</div>
+
+</div>
+
+<div class="section">
+
+<div class="toolbar">
+
+<input
+class="field search"
+id="vehicleSearch"
+placeholder="🔍 Rechercher une immatriculation, marque ou modèle..."
+oninput="renderVehicles()">
+
+</div>
+
+<div class="table-wrap">
+
+<table class="table">
+
+<thead>
+<tr>
+<th>Immatriculation</th>
+<th>Client</th>
+<th>Marque</th>
+<th>Modèle</th>
+<th>Moteur</th>
+<th>Kilométrage</th>
+</tr>
+</thead>
+
+<tbody id="vehicleBody"></tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- INTERVENTIONS -->
+
+<section class="page" id="interventions">
+
+<div class="top">
+
+<div>
+<h1>Interventions</h1>
+<p>Travaux réalisés.</p>
+</div>
+
+</div>
+
+<div class="section">
+
+<div class="empty">
+La gestion des interventions sera ajoutée ensuite.
+</div>
+
+</div>
+
+</section>
+
+
+<!-- MAGASIN -->
+
+<section class="page" id="magasin">
+
+<div class="top">
+
+<div>
+<h1>Magasin</h1>
+<p>Références, prix, quantités et réservations.</p>
+</div>
+
+<button class="primary" onclick="openPart()">+ Nouvelle référence</button>
+
+</div>
+
+<div class="cards" style="margin-bottom:16px">
+
+<div class="card">
+<div class="label">Références</div>
+<div class="value" id="refs">0</div>
+</div>
+
+<div class="card">
+<div class="label">Quantité physique</div>
+<div class="value" id="qty">0</div>
+</div>
+
+<div class="card">
+<div class="label">Réservé par devis</div>
+<div class="value" id="reserved">0</div>
+</div>
+
+<div class="card">
+<div class="label">Valeur d'achat</div>
+<div class="value" id="value">0,00 €</div>
+</div>
+
+</div>
+
+<div class="section">
+
+<div class="toolbar">
+
+<input
+class="field search"
+id="search"
+placeholder="Rechercher référence, désignation, marque..."
+oninput="renderStock">
+
+</div>
+
+<div class="table-wrap">
+
+<table class="table">
+
+<thead>
+<tr>
+<th>Référence</th>
+<th>Désignation</th>
+<th>Marque</th>
+<th>Achat</th>
+<th>Vente</th>
+<th>Stock</th>
+<th>Réservé</th>
+<th>Disponible</th>
+<th></th>
+</tr>
+</thead>
+
+<tbody id="stockBody"></tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- DEVIS -->
+
+<section class="page" id="devis">
+
+<div class="top">
+
+<div>
+<h1>Devis</h1>
+<p>Clients, véhicules et pièces.</p>
+</div>
+
+<button class="primary" onclick="openQuote()">+ Nouveau devis</button>
+
+</div>
+
+<div class="section">
+
+<div class="table-wrap">
+
+<table class="table">
+
+<thead>
+<tr>
+<th>N°</th>
+<th>Date</th>
+<th>Client</th>
+<th>Véhicule</th>
+<th>Total</th>
+<th>Statut</th>
+<th></th>
+</tr>
+</thead>
+
+<tbody id="quoteBody"></tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FACTURES -->
+
+<section class="page" id="factures">
+
+<div class="top">
+
+<div>
+<h1>Factures</h1>
+<p>La facturation fait sortir les pièces du stock.</p>
+</div>
+
+</div>
+
+<div class="section">
+
+<div class="table-wrap">
+
+<table class="table">
+
+<thead>
+<tr>
+<th>N°</th>
+<th>Date</th>
+<th>Client</th>
+<th>Véhicule</th>
+<th>Total</th>
+<th>Statut</th>
+<th></th>
+</tr>
+</thead>
+
+<tbody id="invoiceBody"></tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PLANNING -->
+
+<section class="page" id="planning">
+
+<div class="top">
+<div>
+<h1>Planning</h1>
+<p>Rendez-vous.</p>
+</div>
+</div>
+
+<div class="section">
+<div class="empty">
+Le planning sera ajouté ensuite.
+</div>
+</div>
+
+</section>
+
+
+<!-- PARAMETRES -->
+
+<section class="page" id="settings">
+
+<div class="top">
+<div>
+<h1>Paramètres</h1>
+<p>Configuration de MecaNathan.</p>
+</div>
+</div>
+
+<div class="section">
+
+<h2>Entreprise</h2>
+
+<p style="color:#aaa">
+MecaNathan<br>
+Mécanique automobile à domicile
+</p>
+
+</div>
+
+</section>
+
+</main>
+
+
+<!-- MENU MOBILE -->
+
+<div class="mobile">
+
+<button class="active" data-page="dashboard">
+<i>🏠</i>Accueil
+</button>
+
+<button data-page="clients">
+<i>👥</i>Clients
+</button>
+
+<button data-page="magasin">
+<i>📦</i>Magasin
+</button>
+
+<button data-page="devis">
+<i>📄</i>Devis
+</button>
+
+<button data-page="factures">
+<i>🧾</i>Factures
+</button>
+
+</div>
+
+
+<!-- MODAL CLIENT -->
+
+<div class="modal" id="clientModal">
+
+<div class="modalbox">
+
+<div class="modalhead">
+
+<h2 id="clientTitle">Nouveau client</h2>
+
+<button class="close" onclick="closeModal('clientModal')">×</button>
+
+</div>
+
+<div class="form">
+
+<div class="group">
+<label>Nom *</label>
+<input class="field" id="cLast" placeholder="Nom">
+</div>
+
+<div class="group">
+<label>Prénom</label>
+<input class="field" id="cFirst" placeholder="Prénom">
+</div>
+
+<div class="group">
+<label>Téléphone</label>
+<input class="field" id="cPhone" type="tel" placeholder="06...">
+</div>
+
+<div class="group">
+<label>E-mail</label>
+<input class="field" id="cEmail" type="email">
+</div>
+
+<div class="group full">
+<label>Adresse</label>
+<input class="field" id="cAddress">
+</div>
+
+<div class="group full">
+<label>Notes</label>
+<textarea class="field" id="cNotes"></textarea>
+</div>
+
+</div>
+
+
+<div style="
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-top:22px">
+
+<h2 style="margin:0">Véhicules</h2>
+
+<button class="secondary" onclick="addVehicle()">
++ Ajouter un véhicule
+</button>
+
+</div>
+
+<div id="vehicleFormList"></div>
+
+
+<div class="actions">
+
+<button class="secondary" onclick="closeModal('clientModal')">
+Annuler
+</button>
+
+<button class="primary" onclick="saveClient()">
+Enregistrer le client
+</button>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- MODAL MAGASIN -->
+
+<div class="modal" id="partModal">
+
+<div class="modalbox">
+
+<div class="modalhead">
+
+<h2 id="partTitle">Nouvelle référence</h2>
+
+<button class="close" onclick="closeModal('partModal')">×</button>
+
+</div>
+
+<div class="form">
+
+<div class="group">
+<label>Référence *</label>
+<input class="field" id="pRef" placeholder="Ex. 7701478547">
+</div>
+
+<div class="group">
+<label>Désignation *</label>
+<input class="field" id="pName" placeholder="Ex. Filtre à huile">
+</div>
+
+<div class="group">
+<label>Marque</label>
+<input class="field" id="pBrand">
+</div>
+
+<div class="group">
+<label>Prix d'achat (€)</label>
+<input class="field" id="pBuy" type="number" step=".01" min="0">
+</div>
+
+<div class="group">
+<label>Prix de vente (€)</label>
+<input class="field" id="pSell" type="number" step=".01" min="0">
+</div>
+
+<div class="group">
+<label>Quantité en stock</label>
+<input class="field" id="pQty" type="number" min="0" value="0">
+</div>
+
+</div>
+
+<div class="actions">
+
+<button class="secondary" onclick="closeModal('partModal')">
+Annuler
+</button>
+
+<button class="primary" onclick="savePart()">
+Enregistrer
+</button>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- MODAL DEVIS -->
+
+<div class="modal" id="quoteModal">
+
+<div class="modalbox">
+
+<div class="modalhead">
+
+<h2>Nouveau devis</h2>
+
+<button class="close" onclick="closeModal('quoteModal')">×</button>
+
+</div>
+
+
+<div class="form">
+
+<div class="group full">
+
+<label>Client *</label>
+
+<input
+class="field"
+id="qClientSearch"
+placeholder="🔍 Rechercher par nom, prénom, téléphone ou immatriculation..."
+oninput="searchQuoteClients()">
+
+<div id="clientResults"></div>
+
+</div>
+
+
+<div class="group full">
+
+<label>Client sélectionné</label>
+
+<div class="client-box" id="selectedClient">
+Aucun client sélectionné.
+</div>
+
+</div>
+
+
+<div class="group full">
+
+<label>Véhicule</label>
+
+<select class="field" id="qVehicle" onchange="selectQuoteVehicle(this.value)">
+<option value="">Sélectionne d'abord un client</option>
+</select>
+
+</div>
+
+</div>
+
+
+<div style="
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-top:18px">
+
+<b>Articles</b>
+
+<button class="secondary" onclick="addLine()">
++ Ajouter une ligne
+</button>
+
+</div>
+
+<div class="lines" id="lines"></div>
+
+<div class="hint">
+
+📦 Une pièce du magasin est réservée par le devis.<br>
+🧾 À la facturation, elle sort réellement du stock.<br>
+➕ Une nouvelle référence est mémorisée automatiquement.
+
+</div>
+
+<div class="total">
+Total :
+<span id="total">0,00 €</span>
+</div>
+
+<div class="actions">
+
+<button class="secondary" onclick="closeModal('quoteModal')">
+Annuler
+</button>
+
+<button class="primary" onclick="saveQuote()">
+Enregistrer le devis
+</button>
+
+</div>
+
+</div>
+</div>
+
+
+<script>
+
+/* =========================
+   BASE DE DONNÉES
+========================= */
+
+const KEY="mecanathan_gestion_v3";
+
+let db=JSON.parse(
+localStorage.getItem(KEY)||"null"
+);
+
+if(!db){
+
+db={
+clients:[],
+parts:[],
+quotes:[],
+invoices:[],
+seq:{
+quote:1,
+invoice:1
+}
+};
+
+}
+
+if(!db.clients) db.clients=[];
+if(!db.parts) db.parts=[];
+if(!db.quotes) db.quotes=[];
+if(!db.invoices) db.invoices=[];
+if(!db.seq) db.seq={quote:1,invoice:1};
+
+let editClient=null;
+let editPart=null;
+let linesData=[];
+let selectedClientId=null;
+let selectedVehicleId=null;
+
+
+/* =========================
+   OUTILS
+========================= */
+
+function persist(){
+
+localStorage.setItem(
+KEY,
+JSON.stringify(db)
+);
+
+refresh();
+
+}
+
+function euro(n){
+
+return Number(n||0).toLocaleString(
+"fr-FR",
+{
+style:"currency",
+currency:"EUR"
+}
+);
+
+}
+
+function esc(s){
+
+return String(s??"").replace(
+/[&<>"']/g,
+m=>({
+"&":"&amp;",
+"<":"&lt;",
+">":"&gt;",
+'"':"&quot;",
+"'":"&#039;"
+}[m])
+);
+
+}
+
+function fmtDate(s){
+
+return new Date(s).toLocaleDateString("fr-FR");
+
+}
+
+function closeModal(id){
+
+document
+.getElementById(id)
+.classList.remove("show");
+
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+function go(page){
+
+document
+.querySelectorAll(".page")
+.forEach(
+x=>x.classList.toggle(
+"active",
+x.id===page
+)
+);
+
+document
+.querySelectorAll("[data-page]")
+.forEach(
+x=>x.classList.toggle(
+"active",
+x.dataset.page===page
+)
+);
+
+if(page==="clients") renderClients();
+if(page==="vehicules") renderVehicles();
+if(page==="magasin") renderStock();
+if(page==="devis") renderQuotes();
+if(page==="factures") renderInvoices();
+if(page==="dashboard") renderDashboard();
+
+}
+
+document
+.querySelectorAll("[data-page]")
+.forEach(
+x=>x.addEventListener(
+"click",
+()=>go(x.dataset.page)
+)
+);
+
+
+/* =========================
+   CLIENTS
+========================= */
+
+function openClient(id=null){
+
+editClient=id;
+
+clientTitle.textContent=
+id
+?"Modifier le client"
+:"Nouveau client";
+
+cLast.value="";
+cFirst.value="";
+cPhone.value="";
+cEmail.value="";
+cAddress.value="";
+cNotes.value="";
+
+vehicleFormList.innerHTML="";
+
+if(id){
+
+let c=db.clients.find(
+x=>x.id===id
+);
+
+if(!c) return;
+
+cLast.value=c.last||"";
+cFirst.value=c.first||"";
+cPhone.value=c.phone||"";
+cEmail.value=c.email||"";
+cAddress.value=c.address||"";
+cNotes.value=c.notes||"";
+
+(c.vehicles||[]).forEach(
+v=>addVehicle(v)
+);
+
+}
+
+document
+.getElementById("clientModal")
+.classList.add("show");
+
+}
+
+
+function addVehicle(v=null){
+
+let id=
+crypto.randomUUID();
+
+let div=
+document.createElement("div");
+
+div.className="vehicle-card";
+
+div.dataset.id=id;
+
+div.innerHTML=`
+
+<div style="
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:8px">
+
+<div>
+
+<label style="
+display:block;
+font-size:11px;
+color:#aaa;
+margin-bottom:5px">
+Immatriculation *
+</label>
+
+<input
+class="field v-reg"
+placeholder="AB-123-CD"
+value="${esc(v?.reg||"")}">
+
+</div>
+
+<div>
+
+<label style="
+display:block;
+font-size:11px;
+color:#aaa;
+margin-bottom:5px">
+Marque
+</label>
+
+<input
+class="field v-brand"
+placeholder="Renault"
+value="${esc(v?.brand||"")}">
+
+</div>
+
+<div>
+
+<label style="
+display:block;
+font-size:11px;
+color:#aaa;
+margin-bottom:5px">
+Modèle
+</label>
+
+<input
+class="field v-model"
+placeholder="Clio"
+value="${esc(v?.model||"")}">
+
+</div>
+
+<div>
+
+<label style="
+display:block;
+font-size:11px;
+color:#aaa;
+margin-bottom:5px">
+Motorisation
+</label>
+
+<input
+class="field v-engine"
+placeholder="1.5 dCi 110"
+value="${esc(v?.engine||"")}">
+
+</div>
+
+<div>
+
+<label style="
+display:block;
+font-size:11px;
+color:#aaa;
+margin-bottom:5px">
+Année
+</label>
+
+<input
+class="field v-year"
+type="number"
+placeholder="2018"
+value="${esc(v?.year||"")}">
+
+</div>
+
+<div>
+
+<label style="
+display:block;
+font-size:11px;
+color:#aaa;
+margin-bottom:5px">
+Kilométrage
+</label>
+
+<input
+class="field v-km"
+type="number"
+placeholder="120000"
+value="${esc(v?.km||"")}">
+
+</div>
+
+<div style="grid-column:1/-1">
+
+<label style="
+display:block;
+font-size:11px;
+color:#aaa;
+margin-bottom:5px">
+VIN
+</label>
+
+<input
+class="field v-vin"
+placeholder="VF..."
+value="${esc(v?.vin||"")}">
+
+</div>
+
+<div style="grid-column:1/-1">
+
+<label style="
+display:block;
+font-size:11px;
+color:#aaa;
+margin-bottom:5px">
+Notes
+</label>
+
+<input
+class="field v-notes"
+placeholder="Distribution faite à..."
+value="${esc(v?.notes||"")}">
+
+</div>
+
+</div>
+
+<div style="text-align:right;margin-top:8px">
+
+<button
+class="danger"
+onclick="this.closest('.vehicle-card').remove()">
+
+Supprimer
+
+</button>
+
+</div>
+
+`;
+
+vehicleFormList.appendChild(div);
+
+}
+
+
+function readVehicles(){
+
+return [
+...vehicleFormList
+.querySelectorAll(".vehicle-card")
+]
+.map(card=>({
+
+id:
+card.dataset.id,
+
+reg:
+card.querySelector(".v-reg").value
+.trim()
+.toUpperCase(),
+
+brand:
+card.querySelector(".v-brand").value.trim(),
+
+model:
+card.querySelector(".v-model").value.trim(),
+
+engine:
+card.querySelector(".v-engine").value.trim(),
+
+year:
+card.querySelector(".v-year").value,
+
+km:
+card.querySelector(".v-km").value,
+
+vin:
+card.querySelector(".v-vin").value.trim(),
+
+notes:
+card.querySelector(".v-notes").value.trim()
+
+}));
+
+}
+
+
+function saveClient(){
+
+let last=cLast.value.trim();
+
+if(!last){
+
+alert("Le nom du client est obligatoire.");
+
+return;
+
+}
+
+let vehicles=readVehicles();
+
+for(let v of vehicles){
+
+if(!v.reg){
+
+alert(
+"Chaque véhicule doit avoir une immatriculation."
+);
+
+return;
+
+}
+
+}
+
+let client=editClient
+?db.clients.find(x=>x.id===editClient)
+:{
+id:crypto.randomUUID()
+};
+
+Object.assign(
+client,
+{
+last,
+first:cFirst.value.trim(),
+phone:cPhone.value.trim(),
+email:cEmail.value.trim(),
+address:cAddress.value.trim(),
+notes:cNotes.value.trim(),
+vehicles
+}
+);
+
+if(!editClient)
+db.clients.push(client);
+
+persist();
+
+closeModal("clientModal");
+
+go("clients");
+
+}
+
+
+function deleteClient(id){
+
+let c=db.clients.find(
+x=>x.id===id
+);
+
+if(!c) return;
+
+if(
+confirm(
+`Supprimer le client ${c.first||""} ${c.last} ?`
+)
+){
+
+db.clients=db.clients.filter(
+x=>x.id!==id
+);
+
+persist();
+
+}
+
+}
+
+
+function clientName(c){
+
+return (
+(c.first?c.first+" ":"")+
+c.last
+).trim();
+
+}
+
+
+function renderClients(){
+
+let search=
+(
+document.getElementById("clientSearch")
+?.value||""
+).toLowerCase();
+
+let arr=db.clients.filter(c=>{
+
+let vehicles=(c.vehicles||[])
+.map(v=>v.reg)
+.join(" ");
+
+return (
+clientName(c)+" "+
+(c.phone||"")+" "+
+(c.email||"")+" "+
+vehicles
+)
+.toLowerCase()
+.includes(search);
+
+});
+
+
+clientBody.innerHTML=
+arr.length
+
+?
+
+arr.map(c=>`
+
+<tr>
+
+<td>
+<b>${esc(clientName(c))}</b>
+</td>
+
+<td>
+${esc(c.phone||"—")}
+</td>
+
+<td>
+${esc(c.email||"—")}
+</td>
+
+<td>
+${(c.vehicles||[]).length}
+</td>
+
+<td>
+
+<button
+class="secondary"
+onclick="openClient('${c.id}')">
+Modifier
+</button>
+
+<button
+class="danger"
+onclick="deleteClient('${c.id}')">
+×
+</button>
+
+</td>
+
+</tr>
+
+`).join("")
+
+:
+
+`
+
+<tr>
+<td colspan="5">
+
+<div class="empty">
+Aucun client enregistré.
+<br><br>
+<button
+class="primary"
+onclick="openClient()">
++ Créer le premier client
+</button>
+</div>
+
+</td>
+</tr>
+
+`;
+
+}
+
+
+/* =========================
+   VEHICULES
+========================= */
+
+function renderVehicles(){
+
+let search=
+(
+document.getElementById("vehicleSearch")
+?.value||""
+).toLowerCase();
+
+let rows=[];
+
+db.clients.forEach(c=>{
+
+(c.vehicles||[]).forEach(v=>{
+
+rows.push({
+client:c,
+vehicle:v
+});
+
+});
+
+});
+
+
+rows=rows.filter(x=>{
+
+let v=x.vehicle;
+let c=x.client;
+
+return (
+v.reg+" "+
+v.brand+" "+
+v.model+" "+
+v.engine+" "+
+clientName(c)
+)
+.toLowerCase()
+.includes(search);
+
+});
+
+
+vehicleBody.innerHTML=
+rows.length
+
+?
+
+rows.map(x=>`
+
+<tr>
+
+<td>
+<b>${esc(x.vehicle.reg)}</b>
+</td>
+
+<td>
+${esc(clientName(x.client))}
+</td>
+
+<td>
+${esc(x.vehicle.brand||"—")}
+</td>
+
+<td>
+${esc(x.vehicle.model||"—")}
+</td>
+
+<td>
+${esc(x.vehicle.engine||"—")}
+</td>
+
+<td>
+${x.vehicle.km
+?Number(x.vehicle.km).toLocaleString("fr-FR")+" km"
+:"—"}
+</td>
+
+</tr>
+
+`).join("")
+
+:
+
+`
+
+<tr>
+<td colspan="6">
+
+<div class="empty">
+Aucun véhicule enregistré.
+</div>
+
+</td>
+</tr>
+
+`;
+
+}
+
+
+/* =========================
+   RECHERCHE CLIENT DEVIS
+========================= */
+
+function searchQuoteClients(){
+
+let text=
+qClientSearch.value
+.trim()
+.toLowerCase();
+
+if(!text){
+
+clientResults.innerHTML="";
+return;
+
+}
+
+
+let results=[];
+
+db.clients.forEach(c=>{
+
+let base=(
+clientName(c)+" "+
+(c.phone||"")+" "+
+(c.email||"")
+).toLowerCase();
+
+let vehicleMatch=
+(c.vehicles||[]).some(
+v=>
+(
+v.reg+" "+
+v.brand+" "+
+v.model
+)
+.toLowerCase()
+.includes(text)
+);
+
+if(
+base.includes(text)
+||
+vehicleMatch
+){
+
+results.push(c);
+
+}
+
+});
+
+
+clientResults.innerHTML=
+results.length
+
+?
+
+results.map(c=>`
+
+<div
+class="client-box"
+style="cursor:pointer"
+onclick="selectQuoteClient('${c.id}')">
+
+<b>
+${esc(clientName(c))}
+</b>
+
+<br>
+
+<small style="color:#aaa">
+
+${esc(c.phone||"Sans téléphone")}
+
+—
+
+${(c.vehicles||[]).length}
+véhicule(s)
+
+</small>
+
+<br>
+
+<small style="color:#e30613">
+
+${
+(c.vehicles||[])
+.map(v=>v.reg)
+.join(" • ")
+}
+
+</small>
+
+</div>
+
+`).join("")
+
+:
+
+`
+
+<div class="client-box">
+Aucun client trouvé.
+</div>
+
+`;
+
+}
+
+
+function selectQuoteClient(id){
+
+let c=db.clients.find(
+x=>x.id===id
+);
+
+if(!c) return;
+
+selectedClientId=id;
+
+selectedVehicleId=null;
+
+qClientSearch.value=
+clientName(c);
+
+clientResults.innerHTML="";
+
+selectedClient.innerHTML=`
+
+<b>${esc(clientName(c))}</b>
+
+<br>
+
+<small style="color:#aaa">
+
+${esc(c.phone||"Pas de téléphone")}
+
+—
+
+${esc(c.email||"Pas d'e-mail")}
+
+</small>
+
+`;
+
+
+qVehicle.innerHTML=`
+
+<option value="">
+Choisir le véhicule
+</option>
+
+`+
+(c.vehicles||[])
+.map(
+v=>`
+
+<option value="${v.id}">
+
+${esc(v.reg)}
+—
+${esc(v.brand||"")}
+${esc(v.model||"")}
+
+</option>
+
+`
+)
+.join("");
+
+
+if(
+(c.vehicles||[]).length===1
+){
+
+qVehicle.value=
+c.vehicles[0].id;
+
+selectQuoteVehicle(
+c.vehicles[0].id
+);
+
+}
+
+}
+
+
+function selectQuoteVehicle(id){
+
+selectedVehicleId=id;
+
+}
+
+
+/* =========================
+   MAGASIN
+========================= */
+
+function openPart(id=null){
+
+editPart=id;
+
+partTitle.textContent=
+id
+?"Modifier la référence"
+:"Nouvelle référence";
+
+pRef.value="";
+pName.value="";
+pBrand.value="";
+pBuy.value="";
+pSell.value="";
+pQty.value=0;
+
+if(id){
+
+let p=db.parts.find(
+x=>x.id===id
+);
+
+pRef.value=p.ref;
+pName.value=p.name;
+pBrand.value=p.brand||"";
+pBuy.value=p.buy;
+pSell.value=p.sell;
+pQty.value=p.qty;
+
+}
+
+partModal.classList.add("show");
+
+}
+
+
+function savePart(){
+
+let ref=pRef.value.trim();
+let name=pName.value.trim();
+
+if(!ref||!name){
+
+alert(
+"La référence et la désignation sont obligatoires."
+);
+
+return;
+
+}
+
+if(
+db.parts.some(
+p=>
+p.ref.toLowerCase()===ref.toLowerCase()
+&&
+p.id!==editPart
+)
+){
+
+alert(
+"Cette référence existe déjà."
+);
+
+return;
+
+}
+
+let p=editPart
+?db.parts.find(x=>x.id===editPart)
+:{
+id:crypto.randomUUID(),
+reserved:0
+};
+
+Object.assign(
+p,
+{
+ref,
+name,
+brand:pBrand.value.trim(),
+buy:+pBuy.value||0,
+sell:+pSell.value||0,
+qty:Math.max(0,+pQty.value||0)
+}
+);
+
+if(!editPart)
+db.parts.push(p);
+
+persist();
+
+closeModal("partModal");
+
+}
+
+
+function deletePart(id){
+
+let p=db.parts.find(
+x=>x.id===id
+);
+
+if(p.reserved>0){
+
+alert(
+"Impossible : cette référence est réservée par un devis."
+);
+
+return;
+
+}
+
+if(confirm("Supprimer cette référence ?")){
+
+db.parts=db.parts.filter(
+x=>x.id!==id
+);
+
+persist();
+
+}
+
+}
+
+
+function renderStock(){
+
+let search=
+(
+document.getElementById("search")
+?.value||""
+).toLowerCase();
+
+let arr=db.parts.filter(
+p=>
+(
+p.ref+" "+
+p.name+" "+
+(p.brand||"")
+)
+.toLowerCase()
+.includes(search)
+);
+
+refs.textContent=db.parts.length;
+
+qty.textContent=
+db.parts.reduce(
+(s,p)=>s+p.qty,
+0
+);
+
+reserved.textContent=
+db.parts.reduce(
+(s,p)=>s+p.reserved,
+0
+);
+
+value.textContent=euro(
+db.parts.reduce(
+(s,p)=>s+p.qty*p.buy,
+0
+)
+);
+
+stockBody.innerHTML=
+arr.length
+
+?
+
+arr.map(p=>{
+
+let available=
+p.qty-p.reserved;
+
+let cls=
+available<=0
+?"zero"
+:
+available<=2
+?"low"
+:"ok";
+
+return `
+
+<tr>
+
+<td><b>${esc(p.ref)}</b></td>
+
+<td>${esc(p.name)}</td>
+
+<td>${esc(p.brand||"—")}</td>
+
+<td>${euro(p.buy)}</td>
+
+<td>${euro(p.sell)}</td>
+
+<td>${p.qty}</td>
+
+<td>${p.reserved}</td>
+
+<td class="${cls}">
+${available}
+</td>
+
+<td>
+
+<button
+class="secondary"
+onclick="openPart('${p.id}')">
+Modifier
+</button>
+
+<button
+class="danger"
+onclick="deletePart('${p.id}')">
+×
+</button>
+
+</td>
+
+</tr>
+
+`;
+
+}).join("")
+
+:
+
+`
+
+<tr>
+<td colspan="9">
+
+<div class="empty">
+Aucune référence enregistrée.
+</div>
+
+</td>
+</tr>
+
+`;
+
+}
+
+
+/* =========================
+   DEVIS
+========================= */
+
+function openQuote(){
+
+linesData=[];
+
+selectedClientId=null;
+selectedVehicleId=null;
+
+qClientSearch.value="";
+
+selectedClient.innerHTML=
+"Aucun client sélectionné.";
+
+qVehicle.innerHTML=`
+<option value="">
+Sélectionne d'abord un client
+</option>
+`;
+
+clientResults.innerHTML="";
+
+renderLines();
+
+quoteModal.classList.add("show");
+
+}
+
+
+function addLine(){
+
+linesData.push({
+partId:"",
+qty:1,
+price:0,
+ref:"",
+name:""
+});
+
+renderLines();
+
+}
+
+
+function removeLine(i){
+
+let line=linesData[i];
+
+if(line.partId){
+
+let p=db.parts.find(
+x=>x.id===line.partId
+);
+
+if(p){
+
+p.reserved=
+Math.max(
+0,
+p.reserved-line.qty
+);
+
+}
+
+}
+
+linesData.splice(i,1);
+
+renderLines();
+
+localStorage.setItem(
+KEY,
+JSON.stringify(db)
+);
+
+}
+
+
+function renderLines(){
+
+    if(!linesData.length){
+
+        lines.innerHTML=`
+        <div class="empty">
+            Aucune ligne.<br><br>
+            Ajoute une pièce ou un article.
+        </div>
+        `;
+
+        total.textContent=euro(0);
+
+        return;
+    }
+
+
+    /* Liste de toutes les références du magasin */
+
+    let datalist=`
+
+    <datalist id="partsDatalist">
+
+    ${
+        db.parts.map(
+            p=>`
+
+            <option value="${esc(p.ref)}">
+                ${esc(p.name)}
+            </option>
+
+            `
+        ).join("")
+    }
+
+    </datalist>
+
+    `;
+
+
+    lines.innerHTML=
+    datalist +
+
+    linesData.map(
+        (l,i)=>{
+
+            let selectedPart=
+                l.partId
+                ?
+                db.parts.find(
+                    p=>p.id===l.partId
+                )
+                :
+                null;
+
+
+            return `
+
+            <div class="line">
+
+                <div>
+
+                    <input
+                        class="field"
+                        list="partsDatalist"
+                        placeholder="🔍 Référence ou pièce..."
+                        value="${
+                            selectedPart
+                            ?
+                            esc(selectedPart.ref)
+                            :
+                            esc(l.ref)
+                        }"
+                        oninput="searchPart(${i},this.value)"
+                    >
+
+                    ${
+                        selectedPart
+                        ?
+
+                        `
+                        <div style="
+                            font-size:11px;
+                            color:#aaa;
+                            margin-top:4px;
+                        ">
+
+                        ${esc(selectedPart.name)}
+
+                        — Disponible :
+                        ${selectedPart.qty-selectedPart.reserved}
+
+                        </div>
+                        `
+
+                        :
+
+                        ""
+
+                    }
+
+                </div>
+
+
+                <input
+                    class="field"
+                    type="number"
+                    min="1"
+                    value="${l.qty}"
+                    onchange="changeQty(${i},this.value)"
+                >
+
+
+                <input
+                    class="field"
+                    type="number"
+                    min="0"
+                    step=".01"
+                    value="${l.price}"
+                    onchange="changePrice(${i},this.value)"
+                >
+
+
+                <button
+                    class="danger"
+                    onclick="removeLine(${i})">
+
+                    ×
+
+                </button>
+
+
+                ${
+                    !l.partId
+
+                    ?
+
+                    `
+
+                    <div class="customline">
+
+                        <input
+                            class="field"
+                            placeholder="Nouvelle référence"
+                            value="${esc(l.ref)}"
+                            onchange="linesData[${i}].ref=this.value"
+                        >
+
+                        <input
+                            class="field"
+                            placeholder="Désignation"
+                            value="${esc(l.name)}"
+                            onchange="linesData[${i}].name=this.value"
+                        >
+
+                    </div>
+
+                    `
+
+                    :
+
+                    ""
+
+                }
+
+            </div>
+
+            `;
+
+        }
+    ).join("");
+
+
+    total.textContent=
+        euro(
+            linesData.reduce(
+                (s,l)=>
+                    s+l.qty*l.price,
+                0
+            )
+        );
+
+}
+
+function searchPart(i,value){
+
+    let line=linesData[i];
+
+    value=value.trim();
+
+
+    /*
+       Si une ancienne pièce était sélectionnée
+       et que l'utilisateur commence à modifier
+       la référence, on libère la réservation.
+    */
+
+    if(line.partId){
+
+        let old=db.parts.find(
+            p=>p.id===line.partId
+        );
+
+        if(old){
+
+            old.reserved=
+                Math.max(
+                    0,
+                    old.reserved-line.qty
+                );
+
+        }
+
+        line.partId="";
+
+    }
+
+
+    /*
+       Recherche exacte de la référence
+       dans le magasin.
+    */
+
+    let part=db.parts.find(
+        p=>
+            p.ref.toLowerCase()===
+            value.toLowerCase()
+    );
+
+
+    /*
+       Si la référence existe :
+       on sélectionne automatiquement
+       la pièce du magasin.
+    */
+
+    if(part){
+
+        if(
+            part.qty-part.reserved
+            <
+            line.qty
+        ){
+
+            alert(
+                "Stock disponible insuffisant pour cette référence."
+            );
+
+            line.partId="";
+            line.ref=value;
+
+            renderLines();
+
+            return;
+
+        }
+
+
+        line.partId=part.id;
+
+        line.ref="";
+
+        line.name="";
+
+        line.price=part.sell;
+
+        part.reserved+=line.qty;
+
+    }
+
+    else{
+
+        /*
+           Si aucune référence exacte n'est trouvée,
+           on considère que l'utilisateur est peut-être
+           en train de créer une nouvelle référence.
+        */
+
+        line.ref=value;
+
+    }
+
+
+    localStorage.setItem(
+        KEY,
+        JSON.stringify(db)
+    );
+
+
+    renderLines();
+
+}
+
+lines.innerHTML=
+linesData.map((l,i)=>{
+
+let options=`
+
+<option value="">
+Nouvel article / référence
+</option>
+`;
+
+options+=db.parts.map(
+p=>`
+
+<option
+value="${p.id}"
+${p.id===l.partId?"selected":""}>
+
+${esc(p.ref)}
+—
+${esc(p.name)}
+(Disponible :
+${p.qty-p.reserved})
+
+</option>
+
+`
+).join("");
+
+return `
+
+<div class="line">
+
+<select
+class="field"
+onchange="choosePart(${i},this.value)">
+
+${options}
+
+</select>
+
+<input
+class="field"
+type="number"
+min="1"
+value="${l.qty}"
+onchange="changeQty(${i},this.value)">
+
+<input
+class="field"
+type="number"
+min="0"
+step=".01"
+value="${l.price}"
+onchange="changePrice(${i},this.value)">
+
+<button
+class="danger"
+onclick="removeLine(${i})">
+×
+</button>
+
+${
+!l.partId
+?
+`
+
+<div class="customline">
+
+<input
+class="field"
+placeholder="Référence"
+value="${esc(l.ref)}"
+onchange="linesData[${i}].ref=this.value">
+
+<input
+class="field"
+placeholder="Désignation"
+value="${esc(l.name)}"
+onchange="linesData[${i}].name=this.value">
+
+</div>
+
+`
+:""
+}
+
+</div>
+
+`;
+
+}).join("");
+
+total.textContent=
+euro(
+linesData.reduce(
+(s,l)=>s+l.qty*l.price,
+0
+)
+);
+
+}
+
+
+function choosePart(i,id){
+
+let line=linesData[i];
+
+if(line.partId){
+
+let old=db.parts.find(
+p=>p.id===line.partId
+);
+
+if(old){
+
+old.reserved=
+Math.max(
+0,
+old.reserved-line.qty
+);
+
+}
+
+}
+
+line.partId=id;
+
+if(id){
+
+let p=db.parts.find(
+x=>x.id===id
+);
+
+if(
+p.qty-p.reserved<line.qty
+){
+
+line.partId="";
+
+alert(
+"Stock disponible insuffisant."
+);
+
+renderLines();
+
+return;
+
+}
+
+p.reserved+=line.qty;
+
+line.price=p.sell;
+line.ref="";
+line.name="";
+
+}
+
+renderLines();
+
+localStorage.setItem(
+KEY,
+JSON.stringify(db)
+);
+
+}
+
+
+function changeQty(i,value){
+
+let newQty=Math.max(
+1,
++value||1
+);
+
+let line=linesData[i];
+
+if(line.partId){
+
+let p=db.parts.find(
+x=>x.id===line.partId
+);
+
+let delta=
+newQty-line.qty;
+
+if(
+delta>0 &&
+p.qty-p.reserved<delta
+){
+
+alert(
+"Stock disponible insuffisant."
+);
+
+return;
+
+}
+
+p.reserved+=delta;
+
+}
+
+line.qty=newQty;
+
+renderLines();
+
+localStorage.setItem(
+KEY,
+JSON.stringify(db)
+);
+
+}
+
+
+function changePrice(i,value){
+
+linesData[i].price=
+Math.max(0,+value||0);
+
+renderLines();
+
+}
+
+
+/* =========================
+   ENREGISTRER DEVIS
+========================= */
+
+function saveQuote(){
+
+if(!selectedClientId){
+
+alert(
+"Sélectionne un client."
+);
+
+return;
+
+}
+
+if(!linesData.length){
+
+alert(
+"Ajoute au moins une ligne."
+);
+
+return;
+
+}
+
+for(let line of linesData){
+
+if(
+!line.partId &&
+(
+!line.ref.trim()||
+!line.name.trim()
+)
+){
+
+alert(
+"Renseigne la référence et la désignation du nouvel article."
+);
+
+return;
+
+}
+
+}
+
+
+/* nouvelles références */
+
+for(let line of linesData){
+
+if(!line.partId){
+
+let p=db.parts.find(
+x=>
+x.ref.toLowerCase()===
+line.ref.trim().toLowerCase()
+);
+
+if(!p){
+
+p={
+id:crypto.randomUUID(),
+ref:line.ref.trim(),
+name:line.name.trim(),
+brand:"",
+buy:0,
+sell:line.price,
+qty:0,
+reserved:0
+};
+
+db.parts.push(p);
+
+}
+
+line.partId=p.id;
+
+p.reserved+=line.qty;
+
+}
+
+}
+
+
+let client=
+db.clients.find(
+x=>x.id===selectedClientId
+);
+
+let vehicle=
+client?.vehicles?.find(
+x=>x.id===selectedVehicleId
+);
+
+
+let quote={
+
+id:crypto.randomUUID(),
+
+num:
+"DEV-"+
+String(db.seq.quote++)
+.padStart(4,"0"),
+
+date:
+new Date().toISOString(),
+
+clientId:
+client.id,
+
+client:
+clientName(client),
+
+vehicleId:
+vehicle?.id||"",
+
+vehicle:
+vehicle
+?
+`${vehicle.reg} ${vehicle.brand||""} ${vehicle.model||""}`.trim()
+:"",
+
+total:
+linesData.reduce(
+(s,l)=>s+l.qty*l.price,
+0
+),
+
+status:"En attente",
+
+lines:
+JSON.parse(
+JSON.stringify(linesData)
+)
+
+};
+
+
+db.quotes.push(quote);
+
+persist();
+
+closeModal("quoteModal");
+
+go("devis");
+
+}
+
+
+/* =========================
+   ANNULATION DEVIS
+========================= */
+
+function cancelQuote(id){
+
+let q=db.quotes.find(
+x=>x.id===id
+);
+
+if(
+!q||
+q.status!=="En attente"
+)
+return;
+
+q.lines.forEach(line=>{
+
+let p=db.parts.find(
+x=>x.id===line.partId
+);
+
+if(p){
+
+p.reserved=
+Math.max(
+0,
+p.reserved-line.qty
+);
+
+}
+
+});
+
+q.status="Annulé";
+
+persist();
+
+}
+
+
+/* =========================
+   FACTURATION
+========================= */
+
+function invoiceQuote(id){
+
+let q=db.quotes.find(
+x=>x.id===id
+);
+
+if(
+!q||
+q.status!=="En attente"
+)
+return;
+
+for(let line of q.lines){
+
+let p=db.parts.find(
+x=>x.id===line.partId
+);
+
+if(
+p&&
+p.qty<line.qty
+){
+
+alert(
+"Stock physique insuffisant pour : "+
+p.ref
+);
+
+return;
+
+}
+
+}
+
+q.lines.forEach(line=>{
+
+let p=db.parts.find(
+x=>x.id===line.partId
+);
+
+if(p){
+
+p.qty-=line.qty;
+
+p.reserved=
+Math.max(
+0,
+p.reserved-line.qty
+);
+
+}
+
+});
+
+q.status="Facturé";
+
+db.invoices.push({
+
+id:crypto.randomUUID(),
+
+num:
+"FAC-"+
+String(db.seq.invoice++)
+.padStart(4,"0"),
+
+date:
+new Date().toISOString(),
+
+client:q.client,
+
+vehicle:q.vehicle,
+
+total:q.total,
+
+status:"À payer",
+
+quoteId:q.id
+
+});
+
+persist();
+
+go("factures");
+
+}
+
+
+/* =========================
+   DEVIS AFFICHAGE
+========================= */
+
+function renderQuotes(){
+
+quoteBody.innerHTML=
+db.quotes.length
+
+?
+
+db.quotes
+.slice()
+.reverse()
+.map(q=>`
+
+<tr>
+
+<td><b>${q.num}</b></td>
+
+<td>${fmtDate(q.date)}</td>
+
+<td>${esc(q.client)}</td>
+
+<td>${esc(q.vehicle||"—")}</td>
+
+<td>${euro(q.total)}</td>
+
+<td>
+
+<span class="badge
+${
+q.status==="Facturé"
+?"done"
+:
+q.status==="Annulé"
+?"cancel"
+:"wait"
+}">
+
+${q.status}
+
+</span>
+
+</td>
+
+<td>
+
+${
+q.status==="En attente"
+
+?
+
+`
+
+<button
+class="secondary"
+onclick="invoiceQuote('${q.id}')">
+→ Facturer
+</button>
+
+<button
+class="danger"
+onclick="cancelQuote('${q.id}')">
+Annuler
+</button>
+
+`
+
+:""
+}
+
+</td>
+
+</tr>
+
+`).join("")
+
+:
+
+`
+
+<tr>
+<td colspan="7">
+
+<div class="empty">
+Aucun devis.
+</div>
+
+</td>
+</tr>
+
+`;
+
+}
+
+
+/* =========================
+   FACTURES
+========================= */
+
+function renderInvoices(){
+
+invoiceBody.innerHTML=
+db.invoices.length
+
+?
+
+db.invoices
+.slice()
+.reverse()
+.map(f=>`
+
+<tr>
+
+<td><b>${f.num}</b></td>
+
+<td>${fmtDate(f.date)}</td>
+
+<td>${esc(f.client)}</td>
+
+<td>${esc(f.vehicle||"—")}</td>
+
+<td>${euro(f.total)}</td>
+
+<td>${f.status}</td>
+
+<td>
+
+${
+f.status!=="Payée"
+
+?
+
+`
+
+<button
+class="secondary"
+onclick="pay('${f.id}')">
+Marquer payée
+</button>
+
+`
+:""
+}
+
+</td>
+
+</tr>
+
+`).join("")
+
+:
+
+`
+
+<tr>
+<td colspan="7">
+
+<div class="empty">
+Aucune facture.
+</div>
+
+</td>
+</tr>
+
+`;
+
+}
+
+
+function pay(id){
+
+let f=db.invoices.find(
+x=>x.id===id
+);
+
+if(f){
+
+f.status="Payée";
+
+persist();
+
+}
+
+}
+
+
+/* =========================
+   DASHBOARD
+========================= */
+
+function renderDashboard(){
+
+pending.textContent=
+db.quotes.filter(
+q=>q.status==="En attente"
+).length;
+
+unpaid.textContent=
+euro(
+db.invoices
+.filter(
+f=>f.status!=="Payée"
+)
+.reduce(
+(s,f)=>s+f.total,
+0
+)
+);
+
+stockcount.textContent=
+db.parts.reduce(
+(s,p)=>s+p.qty,
+0
+);
+
+let now=new Date();
+
+ca.textContent=
+euro(
+db.invoices
+.filter(f=>{
+
+let d=new Date(f.date);
+
+return(
+d.getMonth()===now.getMonth()&&
+d.getFullYear()===now.getFullYear()
+);
+
+})
+.reduce(
+(s,f)=>s+f.total,
+0
+)
+);
+
+recent.innerHTML=
+db.quotes.length
+
+?
+
+db.quotes
+.slice(-5)
+.reverse()
+.map(q=>`
+
+<div style="
+padding:10px 0;
+border-bottom:1px solid var(--border)">
+
+<b>${q.num}</b>
+—
+${esc(q.client)}
+
+<span style="float:right">
+${euro(q.total)}
+</span>
+
+<small style="
+display:block;
+color:#888">
+
+${esc(q.vehicle||"")}
+—
+${q.status}
+
+</small>
+
+</div>
+
+`).join("")
+
+:
+
+`
+
+<div class="empty">
+Aucun devis.
+</div>
+
+`;
+
+}
+
+
+/* =========================
+   REFRESH
+========================= */
+
+function refresh(){
+
+renderStock();
+renderClients();
+renderVehicles();
+renderQuotes();
+renderInvoices();
+renderDashboard();
+
+}
+
+refresh();
+
+</script>
+
+</body>
+</html>
