@@ -71,12 +71,15 @@ border-radius:9px;
 font-weight:600
 }
 
-nav button.active,nav button:hover{
+nav button.active,
+nav button:hover{
 background:#241012;
 color:#fff
 }
 
-nav button.active{border-left:3px solid var(--red)}
+nav button.active{
+border-left:3px solid var(--red)
+}
 
 .main{
 margin-left:250px;
@@ -94,8 +97,15 @@ align-items:center;
 margin-bottom:20px
 }
 
-.top h1{margin:0;font-size:28px}
-.top p{margin:5px 0;color:var(--muted)}
+.top h1{
+margin:0;
+font-size:28px
+}
+
+.top p{
+margin:5px 0;
+color:var(--muted)
+}
 
 .primary{
 background:var(--red);
@@ -127,15 +137,25 @@ grid-template-columns:repeat(4,1fr);
 gap:14px
 }
 
-.card,.section{
+.card,
+.section{
 background:var(--panel);
 border:1px solid var(--border);
 border-radius:14px;
 padding:18px
 }
 
-.label{font-size:13px;color:var(--muted)}
-.value{font-size:26px;font-weight:800;margin-top:7px}
+.label{
+font-size:13px;
+color:var(--muted)
+}
+
+.value{
+font-size:26px;
+font-weight:800;
+margin-top:7px
+}
+
 .redtxt{color:var(--red)}
 
 .grid{
@@ -145,7 +165,10 @@ gap:18px;
 margin-top:18px
 }
 
-.section h2{font-size:17px;margin:0 0 15px}
+.section h2{
+font-size:17px;
+margin:0 0 15px
+}
 
 .empty{
 text-align:center;
@@ -193,14 +216,19 @@ border-radius:9px;
 padding:10px 11px
 }
 
-textarea.field{min-height:90px;resize:vertical}
+textarea.field{
+min-height:90px;
+resize:vertical
+}
 
 .search{
 flex:1;
 min-width:220px
 }
 
-.table-wrap{overflow:auto}
+.table-wrap{
+overflow:auto
+}
 
 .table{
 width:100%;
@@ -208,7 +236,8 @@ border-collapse:collapse;
 min-width:700px
 }
 
-.table th,.table td{
+.table th,
+.table td{
 padding:11px 9px;
 border-bottom:1px solid var(--border);
 text-align:left
@@ -220,9 +249,20 @@ color:var(--muted);
 text-transform:uppercase
 }
 
-.ok{color:var(--green);font-weight:800}
-.low{color:var(--orange);font-weight:800}
-.zero{color:#ff6972;font-weight:800}
+.ok{
+color:var(--green);
+font-weight:800
+}
+
+.low{
+color:var(--orange);
+font-weight:800
+}
+
+.zero{
+color:#ff6972;
+font-weight:800
+}
 
 .badge{
 padding:5px 8px;
@@ -231,9 +271,20 @@ background:#292929;
 font-size:12px
 }
 
-.badge.wait{background:#33270f;color:#f4be67}
-.badge.done{background:#102719;color:#7be29b}
-.badge.cancel{background:#3a1014;color:#ff8c92}
+.badge.wait{
+background:#33270f;
+color:#f4be67
+}
+
+.badge.done{
+background:#102719;
+color:#7be29b
+}
+
+.badge.cancel{
+background:#3a1014;
+color:#ff8c92
+}
 
 .modal{
 position:fixed;
@@ -246,7 +297,9 @@ padding:14px;
 z-index:20
 }
 
-.modal.show{display:flex}
+.modal.show{
+display:flex
+}
 
 .modalbox{
 background:#151515;
@@ -264,7 +317,10 @@ justify-content:space-between;
 align-items:center
 }
 
-.modalhead h2{margin:0;font-size:20px}
+.modalhead h2{
+margin:0;
+font-size:20px
+}
 
 .close{
 background:#292929;
@@ -288,7 +344,9 @@ font-size:12px;
 margin-bottom:6px
 }
 
-.full{grid-column:1/-1}
+.full{
+grid-column:1/-1
+}
 
 .actions{
 display:flex;
@@ -297,14 +355,16 @@ gap:9px;
 margin-top:18px
 }
 
-.lines{margin-top:12px}
+.lines{
+margin-top:12px
+}
 
 .line{
 display:grid;
 grid-template-columns:2fr 70px 95px 35px;
 gap:7px;
 margin-bottom:8px;
-align-items:center
+align-items:start
 }
 
 .customline{
@@ -345,17 +405,41 @@ margin-top:12px
 background:#1b1b1b;
 border:1px solid var(--border);
 border-radius:9px;
-padding:11px
+padding:11px;
+margin-top:10px
 }
 
-.vehicle-card b{display:block}
-.vehicle-card small{color:var(--muted)}
+.vehicle-card b{
+display:block
+}
 
-.mobile{display:none}
+.vehicle-card small{
+color:var(--muted)
+}
+
+.search-result{
+background:#1b1b1b;
+border:1px solid var(--border);
+padding:12px;
+margin-top:6px;
+border-radius:9px;
+cursor:pointer
+}
+
+.search-result:hover{
+border-color:var(--red);
+background:#241012
+}
+
+.mobile{
+display:none
+}
 
 @media(max-width:900px){
 
-.sidebar{display:none}
+.sidebar{
+display:none
+}
 
 .main{
 margin:0;
@@ -367,11 +451,17 @@ grid-template-columns:1fr 1fr;
 gap:10px
 }
 
-.grid{grid-template-columns:1fr}
+.grid{
+grid-template-columns:1fr
+}
 
-.top h1{font-size:23px}
+.top h1{
+font-size:23px
+}
 
-.top .primary{display:none}
+.top .primary{
+display:none
+}
 
 .mobile{
 display:flex;
@@ -392,7 +482,9 @@ color:#999;
 font-size:10px
 }
 
-.mobile button.active{color:#fff}
+.mobile button.active{
+color:#fff
+}
 
 .mobile i{
 font-style:normal;
@@ -400,19 +492,31 @@ display:block;
 font-size:18px
 }
 
-.form{grid-template-columns:1fr}
-.full{grid-column:auto}
+.form{
+grid-template-columns:1fr
+}
+
+.full{
+grid-column:auto
+}
 
 .line{
 grid-template-columns:1fr 60px 85px 34px
 }
 
-.customline{grid-column:1/-1}
+.customline{
+grid-column:1/-1
+}
+
 }
 </style>
 </head>
 
 <body>
+
+<!-- =========================
+     MENU
+========================= -->
 
 <aside class="sidebar">
 
@@ -423,34 +527,71 @@ Meca<span>Nathan</span>
 
 <nav>
 
-<button class="active" data-page="dashboard">🏠 &nbsp; Tableau de bord</button>
-<button data-page="clients">👥 &nbsp; Clients</button>
-<button data-page="vehicules">🚗 &nbsp; Véhicules</button>
-<button data-page="interventions">🔧 &nbsp; Interventions</button>
-<button data-page="magasin">📦 &nbsp; Magasin</button>
-<button data-page="devis">📄 &nbsp; Devis</button>
-<button data-page="factures">🧾 &nbsp; Factures</button>
-<button data-page="planning">📅 &nbsp; Planning</button>
-<button data-page="settings">⚙️ &nbsp; Paramètres</button>
+<button class="active" data-page="dashboard">
+🏠 &nbsp; Tableau de bord
+</button>
+
+<button data-page="clients">
+👥 &nbsp; Clients
+</button>
+
+<button data-page="vehicules">
+🚗 &nbsp; Véhicules
+</button>
+
+<button data-page="interventions">
+🔧 &nbsp; Interventions
+</button>
+
+<button data-page="magasin">
+📦 &nbsp; Magasin
+</button>
+
+<button data-page="devis">
+📄 &nbsp; Devis
+</button>
+
+<button data-page="factures">
+🧾 &nbsp; Factures
+</button>
+
+<button data-page="planning">
+📅 &nbsp; Planning
+</button>
+
+<button data-page="settings">
+⚙️ &nbsp; Paramètres
+</button>
 
 </nav>
+
 </aside>
 
 
+<!-- =========================
+     CONTENU
+========================= -->
+
 <main class="main">
+
 
 <!-- DASHBOARD -->
 
 <section class="page active" id="dashboard">
 
 <div class="top">
+
 <div>
 <h1>Tableau de bord</h1>
 <p>Bienvenue sur MecaNathan Gestion.</p>
 </div>
 
-<button class="primary" onclick="openQuote()">+ Nouveau devis</button>
+<button class="primary" onclick="openQuote()">
++ Nouveau devis
+</button>
+
 </div>
+
 
 <div class="cards">
 
@@ -476,14 +617,20 @@ Meca<span>Nathan</span>
 
 </div>
 
+
 <div class="grid">
 
 <div class="section">
+
 <h2>Derniers devis</h2>
+
 <div id="recent"></div>
+
 </div>
 
+
 <div class="section">
+
 <h2>Accès rapide</h2>
 
 <div class="quick">
@@ -509,6 +656,7 @@ Meca<span>Nathan</span>
 </button>
 
 </div>
+
 </div>
 
 </div>
@@ -527,9 +675,12 @@ Meca<span>Nathan</span>
 <p>Clients et véhicules associés.</p>
 </div>
 
-<button class="primary" onclick="openClient()">+ Nouveau client</button>
+<button class="primary" onclick="openClient()">
++ Nouveau client
+</button>
 
 </div>
+
 
 <div class="section">
 
@@ -543,11 +694,13 @@ oninput="renderClients()">
 
 </div>
 
+
 <div class="table-wrap">
 
 <table class="table">
 
 <thead>
+
 <tr>
 <th>Client</th>
 <th>Téléphone</th>
@@ -555,6 +708,7 @@ oninput="renderClients()">
 <th>Véhicules</th>
 <th></th>
 </tr>
+
 </thead>
 
 <tbody id="clientBody"></tbody>
@@ -581,6 +735,7 @@ oninput="renderClients()">
 
 </div>
 
+
 <div class="section">
 
 <div class="toolbar">
@@ -593,11 +748,13 @@ oninput="renderVehicles()">
 
 </div>
 
+
 <div class="table-wrap">
 
 <table class="table">
 
 <thead>
+
 <tr>
 <th>Immatriculation</th>
 <th>Client</th>
@@ -606,6 +763,7 @@ oninput="renderVehicles()">
 <th>Moteur</th>
 <th>Kilométrage</th>
 </tr>
+
 </thead>
 
 <tbody id="vehicleBody"></tbody>
@@ -654,9 +812,12 @@ La gestion des interventions sera ajoutée ensuite.
 <p>Références, prix, quantités et réservations.</p>
 </div>
 
-<button class="primary" onclick="openPart()">+ Nouvelle référence</button>
+<button class="primary" onclick="openPart()">
++ Nouvelle référence
+</button>
 
 </div>
+
 
 <div class="cards" style="margin-bottom:16px">
 
@@ -682,6 +843,7 @@ La gestion des interventions sera ajoutée ensuite.
 
 </div>
 
+
 <div class="section">
 
 <div class="toolbar">
@@ -690,15 +852,17 @@ La gestion des interventions sera ajoutée ensuite.
 class="field search"
 id="search"
 placeholder="Rechercher référence, désignation, marque..."
-oninput="renderStock">
+oninput="renderStock()">
 
 </div>
+
 
 <div class="table-wrap">
 
 <table class="table">
 
 <thead>
+
 <tr>
 <th>Référence</th>
 <th>Désignation</th>
@@ -710,6 +874,7 @@ oninput="renderStock">
 <th>Disponible</th>
 <th></th>
 </tr>
+
 </thead>
 
 <tbody id="stockBody"></tbody>
@@ -734,9 +899,12 @@ oninput="renderStock">
 <p>Clients, véhicules et pièces.</p>
 </div>
 
-<button class="primary" onclick="openQuote()">+ Nouveau devis</button>
+<button class="primary" onclick="openQuote()">
++ Nouveau devis
+</button>
 
 </div>
+
 
 <div class="section">
 
@@ -745,6 +913,7 @@ oninput="renderStock">
 <table class="table">
 
 <thead>
+
 <tr>
 <th>N°</th>
 <th>Date</th>
@@ -754,6 +923,7 @@ oninput="renderStock">
 <th>Statut</th>
 <th></th>
 </tr>
+
 </thead>
 
 <tbody id="quoteBody"></tbody>
@@ -780,6 +950,7 @@ oninput="renderStock">
 
 </div>
 
+
 <div class="section">
 
 <div class="table-wrap">
@@ -787,6 +958,7 @@ oninput="renderStock">
 <table class="table">
 
 <thead>
+
 <tr>
 <th>N°</th>
 <th>Date</th>
@@ -796,6 +968,7 @@ oninput="renderStock">
 <th>Statut</th>
 <th></th>
 </tr>
+
 </thead>
 
 <tbody id="invoiceBody"></tbody>
@@ -814,16 +987,20 @@ oninput="renderStock">
 <section class="page" id="planning">
 
 <div class="top">
+
 <div>
 <h1>Planning</h1>
 <p>Rendez-vous.</p>
 </div>
+
 </div>
 
 <div class="section">
+
 <div class="empty">
 Le planning sera ajouté ensuite.
 </div>
+
 </div>
 
 </section>
@@ -834,11 +1011,14 @@ Le planning sera ajouté ensuite.
 <section class="page" id="settings">
 
 <div class="top">
+
 <div>
 <h1>Paramètres</h1>
 <p>Configuration de MecaNathan.</p>
 </div>
+
 </div>
+
 
 <div class="section">
 
@@ -861,29 +1041,36 @@ Mécanique automobile à domicile
 <div class="mobile">
 
 <button class="active" data-page="dashboard">
-<i>🏠</i>Accueil
+<i>🏠</i>
+Accueil
 </button>
 
 <button data-page="clients">
-<i>👥</i>Clients
+<i>👥</i>
+Clients
 </button>
 
 <button data-page="magasin">
-<i>📦</i>Magasin
+<i>📦</i>
+Magasin
 </button>
 
 <button data-page="devis">
-<i>📄</i>Devis
+<i>📄</i>
+Devis
 </button>
 
 <button data-page="factures">
-<i>🧾</i>Factures
+<i>🧾</i>
+Factures
 </button>
 
 </div>
 
 
-<!-- MODAL CLIENT -->
+<!-- =========================
+     MODAL CLIENT
+========================= -->
 
 <div class="modal" id="clientModal">
 
@@ -891,42 +1078,89 @@ Mécanique automobile à domicile
 
 <div class="modalhead">
 
-<h2 id="clientTitle">Nouveau client</h2>
+<h2 id="clientTitle">
+Nouveau client
+</h2>
 
-<button class="close" onclick="closeModal('clientModal')">×</button>
+<button
+class="close"
+onclick="closeModal('clientModal')">
+×
+</button>
 
 </div>
+
 
 <div class="form">
 
 <div class="group">
+
 <label>Nom *</label>
-<input class="field" id="cLast" placeholder="Nom">
+
+<input
+class="field"
+id="cLast"
+placeholder="Nom">
+
 </div>
 
+
 <div class="group">
+
 <label>Prénom</label>
-<input class="field" id="cFirst" placeholder="Prénom">
+
+<input
+class="field"
+id="cFirst"
+placeholder="Prénom">
+
 </div>
 
+
 <div class="group">
+
 <label>Téléphone</label>
-<input class="field" id="cPhone" type="tel" placeholder="06...">
+
+<input
+class="field"
+id="cPhone"
+type="tel"
+placeholder="06...">
+
 </div>
+
 
 <div class="group">
+
 <label>E-mail</label>
-<input class="field" id="cEmail" type="email">
+
+<input
+class="field"
+id="cEmail"
+type="email">
+
 </div>
 
+
 <div class="group full">
+
 <label>Adresse</label>
-<input class="field" id="cAddress">
+
+<input
+class="field"
+id="cAddress">
+
 </div>
 
+
 <div class="group full">
+
 <label>Notes</label>
-<textarea class="field" id="cNotes"></textarea>
+
+<textarea
+class="field"
+id="cNotes"></textarea>
+
 </div>
 
 </div>
@@ -938,34 +1172,52 @@ justify-content:space-between;
 align-items:center;
 margin-top:22px">
 
-<h2 style="margin:0">Véhicules</h2>
+<h2 style="margin:0">
+Véhicules
+</h2>
 
-<button class="secondary" onclick="addVehicle()">
+<button
+class="secondary"
+onclick="addVehicle()">
+
 + Ajouter un véhicule
+
 </button>
 
 </div>
+
 
 <div id="vehicleFormList"></div>
 
 
 <div class="actions">
 
-<button class="secondary" onclick="closeModal('clientModal')">
+<button
+class="secondary"
+onclick="closeModal('clientModal')">
+
 Annuler
+
 </button>
 
-<button class="primary" onclick="saveClient()">
+<button
+class="primary"
+onclick="saveClient()">
+
 Enregistrer le client
+
 </button>
 
 </div>
 
 </div>
+
 </div>
 
 
-<!-- MODAL MAGASIN -->
+<!-- =========================
+     MODAL MAGASIN
+========================= -->
 
 <div class="modal" id="partModal">
 
@@ -973,63 +1225,128 @@ Enregistrer le client
 
 <div class="modalhead">
 
-<h2 id="partTitle">Nouvelle référence</h2>
+<h2 id="partTitle">
+Nouvelle référence
+</h2>
 
-<button class="close" onclick="closeModal('partModal')">×</button>
+<button
+class="close"
+onclick="closeModal('partModal')">
+×
+</button>
 
 </div>
+
 
 <div class="form">
 
 <div class="group">
+
 <label>Référence *</label>
-<input class="field" id="pRef" placeholder="Ex. 7701478547">
+
+<input
+class="field"
+id="pRef"
+placeholder="Ex. 7701478547">
+
 </div>
 
+
 <div class="group">
+
 <label>Désignation *</label>
-<input class="field" id="pName" placeholder="Ex. Filtre à huile">
+
+<input
+class="field"
+id="pName"
+placeholder="Ex. Filtre à huile">
+
 </div>
 
+
 <div class="group">
+
 <label>Marque</label>
-<input class="field" id="pBrand">
+
+<input
+class="field"
+id="pBrand">
+
 </div>
 
+
 <div class="group">
+
 <label>Prix d'achat (€)</label>
-<input class="field" id="pBuy" type="number" step=".01" min="0">
+
+<input
+class="field"
+id="pBuy"
+type="number"
+step=".01"
+min="0">
+
 </div>
 
+
 <div class="group">
+
 <label>Prix de vente (€)</label>
-<input class="field" id="pSell" type="number" step=".01" min="0">
+
+<input
+class="field"
+id="pSell"
+type="number"
+step=".01"
+min="0">
+
 </div>
+
 
 <div class="group">
+
 <label>Quantité en stock</label>
-<input class="field" id="pQty" type="number" min="0" value="0">
+
+<input
+class="field"
+id="pQty"
+type="number"
+min="0"
+value="0">
+
 </div>
 
 </div>
+
 
 <div class="actions">
 
-<button class="secondary" onclick="closeModal('partModal')">
+<button
+class="secondary"
+onclick="closeModal('partModal')">
+
 Annuler
+
 </button>
 
-<button class="primary" onclick="savePart()">
+<button
+class="primary"
+onclick="savePart()">
+
 Enregistrer
+
 </button>
 
 </div>
 
 </div>
+
 </div>
 
 
-<!-- MODAL DEVIS -->
+<!-- =========================
+     MODAL DEVIS
+========================= -->
 
 <div class="modal" id="quoteModal">
 
@@ -1037,9 +1354,15 @@ Enregistrer
 
 <div class="modalhead">
 
-<h2>Nouveau devis</h2>
+<h2>
+Nouveau devis
+</h2>
 
-<button class="close" onclick="closeModal('quoteModal')">×</button>
+<button
+class="close"
+onclick="closeModal('quoteModal')">
+×
+</button>
 
 </div>
 
@@ -1065,8 +1388,12 @@ oninput="searchQuoteClients()">
 
 <label>Client sélectionné</label>
 
-<div class="client-box" id="selectedClient">
+<div
+class="client-box"
+id="selectedClient">
+
 Aucun client sélectionné.
+
 </div>
 
 </div>
@@ -1076,8 +1403,15 @@ Aucun client sélectionné.
 
 <label>Véhicule</label>
 
-<select class="field" id="qVehicle" onchange="selectQuoteVehicle(this.value)">
-<option value="">Sélectionne d'abord un client</option>
+<select
+class="field"
+id="qVehicle"
+onchange="selectQuoteVehicle(this.value)">
+
+<option value="">
+Sélectionne d'abord un client
+</option>
+
 </select>
 
 </div>
@@ -1091,15 +1425,26 @@ justify-content:space-between;
 align-items:center;
 margin-top:18px">
 
-<b>Articles</b>
+<b>
+Articles
+</b>
 
-<button class="secondary" onclick="addLine()">
+<button
+class="secondary"
+onclick="addLine()">
+
 + Ajouter une ligne
+
 </button>
 
 </div>
 
-<div class="lines" id="lines"></div>
+
+<div
+class="lines"
+id="lines">
+</div>
+
 
 <div class="hint">
 
@@ -1109,42 +1454,73 @@ margin-top:18px">
 
 </div>
 
+
 <div class="total">
+
 Total :
-<span id="total">0,00 €</span>
+<span id="total">
+0,00 €
+</span>
+
 </div>
+
 
 <div class="actions">
 
-<button class="secondary" onclick="closeModal('quoteModal')">
+<button
+class="secondary"
+onclick="closeModal('quoteModal')">
+
 Annuler
+
 </button>
 
-<button class="primary" onclick="saveQuote()">
+<button
+class="primary"
+onclick="saveQuote()">
+
 Enregistrer le devis
+
 </button>
 
 </div>
 
 </div>
+
 </div>
 
+
+<!-- =========================
+     SCRIPT UNIQUE
+========================= -->
 
 <script>
 
-/* =========================
+"use strict";
+
+/* =====================================================
    BASE DE DONNÉES
-========================= */
+===================================================== */
 
-const KEY="mecanathan_gestion_v3";
+const KEY = "mecanathan_gestion_v3";
 
-let db=JSON.parse(
-localStorage.getItem(KEY)||"null"
+let db;
+
+try{
+
+db = JSON.parse(
+localStorage.getItem(KEY)
 );
+
+}catch(e){
+
+db = null;
+
+}
 
 if(!db){
 
-db={
+db = {
 clients:[],
 parts:[],
 quotes:[],
@@ -1157,22 +1533,49 @@ invoice:1
 
 }
 
-if(!db.clients) db.clients=[];
-if(!db.parts) db.parts=[];
-if(!db.quotes) db.quotes=[];
-if(!db.invoices) db.invoices=[];
-if(!db.seq) db.seq={quote:1,invoice:1};
+if(!Array.isArray(db.clients))
+db.clients=[];
 
-let editClient=null;
-let editPart=null;
-let linesData=[];
-let selectedClientId=null;
-let selectedVehicleId=null;
+if(!Array.isArray(db.parts))
+db.parts=[];
+
+if(!Array.isArray(db.quotes))
+db.quotes=[];
+
+if(!Array.isArray(db.invoices))
+db.invoices=[];
+
+if(!db.seq)
+db.seq={quote:1,invoice:1};
+
+if(!db.seq.quote)
+db.seq.quote=1;
+
+if(!db.seq.invoice)
+db.seq.invoice=1;
 
 
-/* =========================
+let editClient = null;
+let editPart = null;
+
+let linesData = [];
+
+let selectedClientId = null;
+let selectedVehicleId = null;
+
+
+/* =====================================================
+   RACCOURCIS DOM
+===================================================== */
+
+function $(id){
+return document.getElementById(id);
+}
+
+
+/* =====================================================
    OUTILS
-========================= */
+===================================================== */
 
 function persist(){
 
@@ -1185,9 +1588,10 @@ refresh();
 
 }
 
-function euro(n){
 
-return Number(n||0).toLocaleString(
+function euro(value){
+
+return Number(value || 0).toLocaleString(
 "fr-FR",
 {
 style:"currency",
@@ -1197,140 +1601,225 @@ currency:"EUR"
 
 }
 
-function esc(s){
 
-return String(s??"").replace(
-/[&<>"']/g,
-m=>({
-"&":"&amp;",
-"<":"&lt;",
-">":"&gt;",
-'"':"&quot;",
-"'":"&#039;"
-}[m])
-);
+function esc(value){
+
+return String(value ?? "")
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
 
 }
 
-function fmtDate(s){
 
-return new Date(s).toLocaleDateString("fr-FR");
+function clientName(client){
+
+return (
+(client.first ? client.first + " " : "") +
+(client.last || "")
+).trim();
 
 }
+
+
+function fmtDate(value){
+
+if(!value)
+return "—";
+
+const d = new Date(value);
+
+if(isNaN(d.getTime()))
+return value;
+
+return d.toLocaleDateString("fr-FR");
+
+}
+
+
+function uid(){
+
+return Date.now().toString(36) +
+Math.random().toString(36).slice(2);
+
+}
+
+
+/* =====================================================
+   MODALES
+===================================================== */
 
 function closeModal(id){
 
-document
-.getElementById(id)
-.classList.remove("show");
+const modal = $(id);
+
+if(modal)
+modal.classList.remove("show");
 
 }
 
 
-/* =========================
+/* =====================================================
    NAVIGATION
-========================= */
+===================================================== */
 
 function go(page){
 
 document
 .querySelectorAll(".page")
-.forEach(
-x=>x.classList.toggle(
+.forEach(function(section){
+
+section.classList.toggle(
 "active",
-x.id===page
-)
+section.id === page
 );
+
+});
+
 
 document
 .querySelectorAll("[data-page]")
-.forEach(
-x=>x.classList.toggle(
+.forEach(function(button){
+
+button.classList.toggle(
 "active",
-x.dataset.page===page
-)
+button.dataset.page === page
 );
 
-if(page==="clients") renderClients();
-if(page==="vehicules") renderVehicles();
-if(page==="magasin") renderStock();
-if(page==="devis") renderQuotes();
-if(page==="factures") renderInvoices();
-if(page==="dashboard") renderDashboard();
+});
+
+
+if(page === "dashboard")
+renderDashboard();
+
+if(page === "clients")
+renderClients();
+
+if(page === "vehicules")
+renderVehicles();
+
+if(page === "magasin")
+renderStock();
+
+if(page === "devis")
+renderQuotes();
+
+if(page === "factures")
+renderInvoices();
 
 }
 
+
+/* =====================================================
+   NAVIGATION CLIC
+===================================================== */
+
 document
 .querySelectorAll("[data-page]")
-.forEach(
-x=>x.addEventListener(
+.forEach(function(button){
+
+button.addEventListener(
 "click",
-()=>go(x.dataset.page)
-)
+function(){
+
+go(button.dataset.page);
+
+}
 );
 
+});
 
-/* =========================
+
+/* =====================================================
    CLIENTS
-========================= */
+===================================================== */
 
-function openClient(id=null){
+function openClient(id){
 
-editClient=id;
+editClient = id || null;
 
-clientTitle.textContent=
+$("clientTitle").textContent =
 id
-?"Modifier le client"
-:"Nouveau client";
+? "Modifier le client"
+: "Nouveau client";
 
-cLast.value="";
-cFirst.value="";
-cPhone.value="";
-cEmail.value="";
-cAddress.value="";
-cNotes.value="";
 
-vehicleFormList.innerHTML="";
+$("cLast").value="";
+$("cFirst").value="";
+$("cPhone").value="";
+$("cEmail").value="";
+$("cAddress").value="";
+$("cNotes").value="";
+
+$("vehicleFormList").innerHTML="";
+
 
 if(id){
 
-let c=db.clients.find(
-x=>x.id===id
-);
+const client =
+db.clients.find(function(c){
+return c.id === id;
+});
 
-if(!c) return;
 
-cLast.value=c.last||"";
-cFirst.value=c.first||"";
-cPhone.value=c.phone||"";
-cEmail.value=c.email||"";
-cAddress.value=c.address||"";
-cNotes.value=c.notes||"";
+if(!client)
+return;
 
-(c.vehicles||[]).forEach(
-v=>addVehicle(v)
-);
+
+$("cLast").value =
+client.last || "";
+
+$("cFirst").value =
+client.first || "";
+
+$("cPhone").value =
+client.phone || "";
+
+$("cEmail").value =
+client.email || "";
+
+$("cAddress").value =
+client.address || "";
+
+$("cNotes").value =
+client.notes || "";
+
+
+(client.vehicles || [])
+.forEach(function(vehicle){
+
+addVehicle(vehicle);
+
+});
 
 }
 
-document
-.getElementById("clientModal")
+
+$("clientModal")
 .classList.add("show");
 
 }
 
 
-function addVehicle(v=null){
+/* =====================================================
+   AJOUT VEHICULE
+===================================================== */
 
-let id=
-crypto.randomUUID();
+function addVehicle(vehicle){
 
-let div=
+const id =
+vehicle?.id || uid();
+
+
+const div =
 document.createElement("div");
 
 div.className="vehicle-card";
 
 div.dataset.id=id;
+
 
 div.innerHTML=`
 
@@ -1346,15 +1835,18 @@ display:block;
 font-size:11px;
 color:#aaa;
 margin-bottom:5px">
+
 Immatriculation *
+
 </label>
 
 <input
 class="field v-reg"
 placeholder="AB-123-CD"
-value="${esc(v?.reg||"")}">
+value="${esc(vehicle?.reg || "")}">
 
 </div>
+
 
 <div>
 
@@ -1363,15 +1855,18 @@ display:block;
 font-size:11px;
 color:#aaa;
 margin-bottom:5px">
+
 Marque
+
 </label>
 
 <input
 class="field v-brand"
 placeholder="Renault"
-value="${esc(v?.brand||"")}">
+value="${esc(vehicle?.brand || "")}">
 
 </div>
+
 
 <div>
 
@@ -1380,15 +1875,18 @@ display:block;
 font-size:11px;
 color:#aaa;
 margin-bottom:5px">
+
 Modèle
+
 </label>
 
 <input
 class="field v-model"
 placeholder="Clio"
-value="${esc(v?.model||"")}">
+value="${esc(vehicle?.model || "")}">
 
 </div>
+
 
 <div>
 
@@ -1397,15 +1895,18 @@ display:block;
 font-size:11px;
 color:#aaa;
 margin-bottom:5px">
+
 Motorisation
+
 </label>
 
 <input
 class="field v-engine"
 placeholder="1.5 dCi 110"
-value="${esc(v?.engine||"")}">
+value="${esc(vehicle?.engine || "")}">
 
 </div>
+
 
 <div>
 
@@ -1414,16 +1915,19 @@ display:block;
 font-size:11px;
 color:#aaa;
 margin-bottom:5px">
+
 Année
+
 </label>
 
 <input
 class="field v-year"
 type="number"
 placeholder="2018"
-value="${esc(v?.year||"")}">
+value="${esc(vehicle?.year || "")}">
 
 </div>
+
 
 <div>
 
@@ -1432,16 +1936,19 @@ display:block;
 font-size:11px;
 color:#aaa;
 margin-bottom:5px">
+
 Kilométrage
+
 </label>
 
 <input
 class="field v-km"
 type="number"
 placeholder="120000"
-value="${esc(v?.km||"")}">
+value="${esc(vehicle?.km || "")}">
 
 </div>
+
 
 <div style="grid-column:1/-1">
 
@@ -1450,15 +1957,18 @@ display:block;
 font-size:11px;
 color:#aaa;
 margin-bottom:5px">
+
 VIN
+
 </label>
 
 <input
 class="field v-vin"
 placeholder="VF..."
-value="${esc(v?.vin||"")}">
+value="${esc(vehicle?.vin || "")}">
 
 </div>
+
 
 <div style="grid-column:1/-1">
 
@@ -1467,22 +1977,28 @@ display:block;
 font-size:11px;
 color:#aaa;
 margin-bottom:5px">
+
 Notes
+
 </label>
 
 <input
 class="field v-notes"
 placeholder="Distribution faite à..."
-value="${esc(v?.notes||"")}">
+value="${esc(vehicle?.notes || "")}">
 
 </div>
 
 </div>
 
-<div style="text-align:right;margin-top:8px">
+
+<div style="
+text-align:right;
+margin-top:8px">
 
 <button
 class="danger"
+type="button"
 onclick="this.closest('.vehicle-card').remove()">
 
 Supprimer
@@ -1493,70 +2009,107 @@ Supprimer
 
 `;
 
-vehicleFormList.appendChild(div);
+
+$("vehicleFormList")
+.appendChild(div);
 
 }
 
+
+/* =====================================================
+   LIRE VEHICULES
+===================================================== */
 
 function readVehicles(){
 
 return [
-...vehicleFormList
+...
+$("vehicleFormList")
 .querySelectorAll(".vehicle-card")
 ]
-.map(card=>({
+.map(function(card){
+
+return {
 
 id:
-card.dataset.id,
+card.dataset.id || uid(),
 
 reg:
-card.querySelector(".v-reg").value
+card.querySelector(".v-reg")
+.value
 .trim()
 .toUpperCase(),
 
 brand:
-card.querySelector(".v-brand").value.trim(),
+card.querySelector(".v-brand")
+.value
+.trim(),
 
 model:
-card.querySelector(".v-model").value.trim(),
+card.querySelector(".v-model")
+.value
+.trim(),
 
 engine:
-card.querySelector(".v-engine").value.trim(),
+card.querySelector(".v-engine")
+.value
+.trim(),
 
 year:
-card.querySelector(".v-year").value,
+card.querySelector(".v-year")
+.value,
 
 km:
-card.querySelector(".v-km").value,
+card.querySelector(".v-km")
+.value,
 
 vin:
-card.querySelector(".v-vin").value.trim(),
+card.querySelector(".v-vin")
+.value
+.trim(),
 
 notes:
-card.querySelector(".v-notes").value.trim()
+card.querySelector(".v-notes")
+.value
+.trim()
 
-}));
+};
+
+});
 
 }
 
 
+/* =====================================================
+   SAUVER CLIENT
+===================================================== */
+
 function saveClient(){
 
-let last=cLast.value.trim();
+const last =
+$("cLast")
+.value
+.trim();
+
 
 if(!last){
 
-alert("Le nom du client est obligatoire.");
+alert(
+"Le nom du client est obligatoire."
+);
 
 return;
 
 }
 
-let vehicles=readVehicles();
 
-for(let v of vehicles){
+const vehicles =
+readVehicles();
 
-if(!v.reg){
+
+for(const vehicle of vehicles){
+
+if(!vehicle.reg){
 
 alert(
 "Chaque véhicule doit avoir une immatriculation."
@@ -1568,27 +2121,63 @@ return;
 
 }
 
-let client=editClient
-?db.clients.find(x=>x.id===editClient)
-:{
-id:crypto.randomUUID()
+
+let client;
+
+
+if(editClient){
+
+client =
+db.clients.find(function(c){
+return c.id === editClient;
+});
+
+if(!client)
+return;
+
+}else{
+
+client={
+id:uid(),
+vehicles:[]
 };
 
-Object.assign(
-client,
-{
-last,
-first:cFirst.value.trim(),
-phone:cPhone.value.trim(),
-email:cEmail.value.trim(),
-address:cAddress.value.trim(),
-notes:cNotes.value.trim(),
-vehicles
-}
-);
-
-if(!editClient)
 db.clients.push(client);
+
+}
+
+
+client.last =
+last;
+
+client.first =
+$("cFirst")
+.value
+.trim();
+
+client.phone =
+$("cPhone")
+.value
+.trim();
+
+client.email =
+$("cEmail")
+.value
+.trim();
+
+client.address =
+$("cAddress")
+.value
+.trim();
+
+client.notes =
+$("cNotes")
+.value
+.trim();
+
+client.vehicles =
+vehicles;
+
 
 persist();
 
@@ -1599,23 +2188,33 @@ go("clients");
 }
 
 
+/* =====================================================
+   SUPPRIMER CLIENT
+===================================================== */
+
 function deleteClient(id){
 
-let c=db.clients.find(
-x=>x.id===id
-);
+const client =
+db.clients.find(function(c){
+return c.id === id;
+});
 
-if(!c) return;
+if(!client)
+return;
+
 
 if(
 confirm(
-`Supprimer le client ${c.first||""} ${c.last} ?`
+"Supprimer le client " +
+clientName(client) +
+" ?"
 )
 ){
 
-db.clients=db.clients.filter(
-x=>x.id!==id
-);
+db.clients =
+db.clients.filter(function(c){
+return c.id !== id;
+});
 
 persist();
 
@@ -1624,295 +2223,382 @@ persist();
 }
 
 
-function clientName(c){
-
-return (
-(c.first?c.first+" ":"")+
-c.last
-).trim();
-
-}
-
+/* =====================================================
+   AFFICHER CLIENTS
+===================================================== */
 
 function renderClients(){
 
-let search=
+const search =
 (
-document.getElementById("clientSearch")
-?.value||""
-).toLowerCase();
+$("clientSearch")?.value || ""
+)
+.toLowerCase()
+.trim();
 
-let arr=db.clients.filter(c=>{
 
-let vehicles=(c.vehicles||[])
-.map(v=>v.reg)
+const clients =
+db.clients.filter(function(client){
+
+const vehicles =
+(client.vehicles || [])
+.map(function(v){
+return v.reg + " " +
+v.brand + " " +
+v.model;
+})
 .join(" ");
 
-return (
-clientName(c)+" "+
-(c.phone||"")+" "+
-(c.email||"")+" "+
-vehicles
-)
+
+const text =
+clientName(client) +
+" " +
+(client.phone || "") +
+" " +
+(client.email || "") +
+" " +
+vehicles;
+
+
+return text
 .toLowerCase()
 .includes(search);
 
 });
 
 
-clientBody.innerHTML=
-arr.length
+const body =
+$("clientBody");
 
-?
 
-arr.map(c=>`
+if(!clients.length){
+
+body.innerHTML=`
+
+<tr>
+
+<td colspan="5">
+
+<div class="empty">
+
+Aucun client enregistré.
+
+<br><br>
+
+<button
+class="primary"
+onclick="openClient()">
+
++ Créer le premier client
+
+</button>
+
+</div>
+
+</td>
+
+</tr>
+
+`;
+
+return;
+
+}
+
+
+body.innerHTML =
+clients.map(function(client){
+
+return `
 
 <tr>
 
 <td>
-<b>${esc(clientName(c))}</b>
+<b>
+${esc(clientName(client))}
+</b>
 </td>
 
 <td>
-${esc(c.phone||"—")}
+${esc(client.phone || "—")}
 </td>
 
 <td>
-${esc(c.email||"—")}
+${esc(client.email || "—")}
 </td>
 
 <td>
-${(c.vehicles||[]).length}
+${(client.vehicles || []).length}
 </td>
 
 <td>
 
 <button
 class="secondary"
-onclick="openClient('${c.id}')">
+onclick="openClient('${client.id}')">
+
 Modifier
+
 </button>
 
 <button
 class="danger"
-onclick="deleteClient('${c.id}')">
+onclick="deleteClient('${client.id}')">
+
 ×
+
 </button>
 
 </td>
 
-</tr>
-
-`).join("")
-
-:
-
-`
-
-<tr>
-<td colspan="5">
-
-<div class="empty">
-Aucun client enregistré.
-<br><br>
-<button
-class="primary"
-onclick="openClient()">
-+ Créer le premier client
-</button>
-</div>
-
-</td>
 </tr>
 
 `;
 
+}).join("");
+
 }
 
 
-/* =========================
+/* =====================================================
    VEHICULES
-========================= */
+===================================================== */
 
 function renderVehicles(){
 
-let search=
+const search =
 (
-document.getElementById("vehicleSearch")
-?.value||""
-).toLowerCase();
-
-let rows=[];
-
-db.clients.forEach(c=>{
-
-(c.vehicles||[]).forEach(v=>{
-
-rows.push({
-client:c,
-vehicle:v
-});
-
-});
-
-});
-
-
-rows=rows.filter(x=>{
-
-let v=x.vehicle;
-let c=x.client;
-
-return (
-v.reg+" "+
-v.brand+" "+
-v.model+" "+
-v.engine+" "+
-clientName(c)
+$("vehicleSearch")?.value || ""
 )
 .toLowerCase()
-.includes(search);
+.trim();
+
+
+const rows=[];
+
+
+db.clients.forEach(function(client){
+
+(client.vehicles || [])
+.forEach(function(vehicle){
+
+const text =
+(
+vehicle.reg + " " +
+vehicle.brand + " " +
+vehicle.model + " " +
+vehicle.engine + " " +
+clientName(client)
+)
+.toLowerCase();
+
+
+if(text.includes(search)){
+
+rows.push({
+client,
+vehicle
+});
+
+}
+
+});
 
 });
 
 
-vehicleBody.innerHTML=
-rows.length
+const body =
+$("vehicleBody");
 
-?
 
-rows.map(x=>`
+if(!rows.length){
 
-<tr>
-
-<td>
-<b>${esc(x.vehicle.reg)}</b>
-</td>
-
-<td>
-${esc(clientName(x.client))}
-</td>
-
-<td>
-${esc(x.vehicle.brand||"—")}
-</td>
-
-<td>
-${esc(x.vehicle.model||"—")}
-</td>
-
-<td>
-${esc(x.vehicle.engine||"—")}
-</td>
-
-<td>
-${x.vehicle.km
-?Number(x.vehicle.km).toLocaleString("fr-FR")+" km"
-:"—"}
-</td>
-
-</tr>
-
-`).join("")
-
-:
-
-`
+body.innerHTML=`
 
 <tr>
+
 <td colspan="6">
 
 <div class="empty">
+
 Aucun véhicule enregistré.
+
 </div>
 
 </td>
+
 </tr>
 
 `;
 
-}
-
-
-/* =========================
-   RECHERCHE CLIENT DEVIS
-========================= */
-
-function searchQuoteClients(){
-
-let text=
-qClientSearch.value
-.trim()
-.toLowerCase();
-
-if(!text){
-
-clientResults.innerHTML="";
 return;
 
 }
 
 
-let results=[];
+body.innerHTML =
+rows.map(function(row){
 
-db.clients.forEach(c=>{
+const vehicle =
+row.vehicle;
 
-let base=(
-clientName(c)+" "+
-(c.phone||"")+" "+
-(c.email||"")
-).toLowerCase();
+return `
 
-let vehicleMatch=
-(c.vehicles||[]).some(
-v=>
-(
-v.reg+" "+
-v.brand+" "+
-v.model
-)
-.toLowerCase()
-.includes(text)
-);
+<tr>
 
-if(
-base.includes(text)
-||
-vehicleMatch
-){
+<td>
+<b>${esc(vehicle.reg)}</b>
+</td>
 
-results.push(c);
+<td>
+${esc(clientName(row.client))}
+</td>
+
+<td>
+${esc(vehicle.brand || "—")}
+</td>
+
+<td>
+${esc(vehicle.model || "—")}
+</td>
+
+<td>
+${esc(vehicle.engine || "—")}
+</td>
+
+<td>
+
+${
+vehicle.km
+?
+Number(vehicle.km)
+.toLocaleString("fr-FR") +
+" km"
+:
+"—"
+}
+
+</td>
+
+</tr>
+
+`;
+
+}).join("");
 
 }
+
+
+/* =====================================================
+   RECHERCHE CLIENT POUR DEVIS
+===================================================== */
+
+function searchQuoteClients(){
+
+const text =
+$("qClientSearch")
+.value
+.trim()
+.toLowerCase();
+
+
+const resultsBox =
+$("clientResults");
+
+
+if(!text){
+
+resultsBox.innerHTML="";
+
+return;
+
+}
+
+
+const results =
+db.clients.filter(function(client){
+
+const clientText =
+(
+clientName(client) +
+" " +
+(client.phone || "") +
+" " +
+(client.email || "")
+)
+.toLowerCase();
+
+
+const vehicleMatch =
+(client.vehicles || [])
+.some(function(vehicle){
+
+return (
+vehicle.reg + " " +
+vehicle.brand + " " +
+vehicle.model
+)
+.toLowerCase()
+.includes(text);
 
 });
 
 
-clientResults.innerHTML=
-results.length
+return (
+clientText.includes(text) ||
+vehicleMatch
+);
 
-?
+});
 
-results.map(c=>`
+
+if(!results.length){
+
+resultsBox.innerHTML=`
+
+<div class="client-box">
+
+Aucun client trouvé.
+
+</div>
+
+`;
+
+return;
+
+}
+
+
+resultsBox.innerHTML =
+results.map(function(client){
+
+const registrations =
+(client.vehicles || [])
+.map(function(vehicle){
+return vehicle.reg;
+})
+.join(" • ");
+
+
+return `
 
 <div
-class="client-box"
-style="cursor:pointer"
-onclick="selectQuoteClient('${c.id}')">
+class="search-result"
+onclick="selectQuoteClient('${client.id}')">
 
 <b>
-${esc(clientName(c))}
+${esc(clientName(client))}
 </b>
 
 <br>
 
 <small style="color:#aaa">
 
-${esc(c.phone||"Sans téléphone")}
+${esc(client.phone || "Sans téléphone")}
 
 —
 
-${(c.vehicles||[]).length}
+${(client.vehicles || []).length}
 véhicule(s)
 
 </small>
@@ -1921,161 +2607,212 @@ véhicule(s)
 
 <small style="color:#e30613">
 
-${
-(c.vehicles||[])
-.map(v=>v.reg)
-.join(" • ")
-}
+${esc(registrations)}
 
 </small>
 
 </div>
 
-`).join("")
-
-:
-
-`
-
-<div class="client-box">
-Aucun client trouvé.
-</div>
-
 `;
+
+}).join("");
 
 }
 
 
+/* =====================================================
+   SELECTION CLIENT DEVIS
+===================================================== */
+
 function selectQuoteClient(id){
 
-let c=db.clients.find(
-x=>x.id===id
-);
+const client =
+db.clients.find(function(c){
+return c.id === id;
+});
 
-if(!c) return;
 
-selectedClientId=id;
+if(!client)
+return;
 
-selectedVehicleId=null;
 
-qClientSearch.value=
-clientName(c);
+selectedClientId =
+id;
 
-clientResults.innerHTML="";
+selectedVehicleId =
+null;
 
-selectedClient.innerHTML=`
 
-<b>${esc(clientName(c))}</b>
+$("qClientSearch")
+.value =
+clientName(client);
+
+
+$("clientResults")
+.innerHTML="";
+
+
+$("selectedClient")
+.innerHTML=`
+
+<b>
+${esc(clientName(client))}
+</b>
 
 <br>
 
 <small style="color:#aaa">
 
-${esc(c.phone||"Pas de téléphone")}
+${esc(client.phone || "Pas de téléphone")}
 
 —
 
-${esc(c.email||"Pas d'e-mail")}
+${esc(client.email || "Pas d'e-mail")}
 
 </small>
 
 `;
 
 
-qVehicle.innerHTML=`
+$("qVehicle").innerHTML=`
 
 <option value="">
 Choisir le véhicule
 </option>
 
-`+
-(c.vehicles||[])
-.map(
-v=>`
+`;
 
-<option value="${v.id}">
 
-${esc(v.reg)}
+(client.vehicles || [])
+.forEach(function(vehicle){
+
+$("qVehicle").innerHTML += `
+
+<option value="${vehicle.id}">
+
+${esc(vehicle.reg)}
 —
-${esc(v.brand||"")}
-${esc(v.model||"")}
+${esc(vehicle.brand || "")}
+${esc(vehicle.model || "")}
 
 </option>
 
-`
-)
-.join("");
+`;
+
+});
 
 
-if(
-(c.vehicles||[]).length===1
-){
+if((client.vehicles || []).length === 1){
 
-qVehicle.value=
-c.vehicles[0].id;
+$("qVehicle").value =
+client.vehicles[0].id;
 
 selectQuoteVehicle(
-c.vehicles[0].id
+client.vehicles[0].id
 );
 
 }
 
 }
 
+
+/* =====================================================
+   SELECTION VEHICULE
+===================================================== */
 
 function selectQuoteVehicle(id){
 
-selectedVehicleId=id;
+selectedVehicleId =
+id;
 
 }
 
 
-/* =========================
-   MAGASIN
-========================= */
+/* =====================================================
+   MAGASIN - NOUVELLE REFERENCE
+===================================================== */
 
-function openPart(id=null){
+function openPart(id){
 
-editPart=id;
+editPart =
+id || null;
 
-partTitle.textContent=
+
+$("partTitle")
+.textContent =
 id
-?"Modifier la référence"
-:"Nouvelle référence";
+?
+"Modifier la référence"
+:
+"Nouvelle référence";
 
-pRef.value="";
-pName.value="";
-pBrand.value="";
-pBuy.value="";
-pSell.value="";
-pQty.value=0;
+
+$("pRef").value="";
+$("pName").value="";
+$("pBrand").value="";
+$("pBuy").value="";
+$("pSell").value="";
+$("pQty").value="0";
+
 
 if(id){
 
-let p=db.parts.find(
-x=>x.id===id
-);
+const part =
+db.parts.find(function(p){
+return p.id === id;
+});
 
-pRef.value=p.ref;
-pName.value=p.name;
-pBrand.value=p.brand||"";
-pBuy.value=p.buy;
-pSell.value=p.sell;
-pQty.value=p.qty;
+
+if(!part)
+return;
+
+
+$("pRef").value =
+part.ref || "";
+
+$("pName").value =
+part.name || "";
+
+$("pBrand").value =
+part.brand || "";
+
+$("pBuy").value =
+part.buy || "";
+
+$("pSell").value =
+part.sell || "";
+
+$("pQty").value =
+part.qty || 0;
 
 }
 
-partModal.classList.add("show");
+
+$("partModal")
+.classList.add("show");
 
 }
 
+
+/* =====================================================
+   SAUVER REFERENCE
+===================================================== */
 
 function savePart(){
 
-let ref=pRef.value.trim();
-let name=pName.value.trim();
+const ref =
+$("pRef")
+.value
+.trim();
 
-if(!ref||!name){
+
+const name =
+$("pName")
+.value
+.trim();
+
+
+if(!ref || !name){
 
 alert(
 "La référence et la désignation sont obligatoires."
@@ -2085,14 +2822,20 @@ return;
 
 }
 
-if(
-db.parts.some(
-p=>
-p.ref.toLowerCase()===ref.toLowerCase()
-&&
-p.id!==editPart
-)
-){
+
+const duplicate =
+db.parts.some(function(part){
+
+return (
+part.ref.toLowerCase() ===
+ref.toLowerCase() &&
+part.id !== editPart
+);
+
+});
+
+
+if(duplicate){
 
 alert(
 "Cette référence existe déjà."
@@ -2102,27 +2845,58 @@ return;
 
 }
 
-let p=editPart
-?db.parts.find(x=>x.id===editPart)
-:{
-id:crypto.randomUUID(),
+
+let part;
+
+
+if(editPart){
+
+part =
+db.parts.find(function(p){
+return p.id === editPart;
+});
+
+if(!part)
+return;
+
+}else{
+
+part={
+id:uid(),
 reserved:0
 };
 
-Object.assign(
-p,
-{
-ref,
-name,
-brand:pBrand.value.trim(),
-buy:+pBuy.value||0,
-sell:+pSell.value||0,
-qty:Math.max(0,+pQty.value||0)
+db.parts.push(part);
+
 }
+
+
+part.ref =
+ref;
+
+part.name =
+name;
+
+part.brand =
+$("pBrand")
+.value
+.trim();
+
+part.buy =
+Number($("pBuy").value || 0);
+
+part.sell =
+Number($("pSell").value || 0);
+
+part.qty =
+Math.max(
+0,
+Number($("pQty").value || 0)
 );
 
-if(!editPart)
-db.parts.push(p);
+if(part.reserved == null)
+part.reserved=0;
+
 
 persist();
 
@@ -2131,13 +2905,23 @@ closeModal("partModal");
 }
 
 
+/* =====================================================
+   SUPPRIMER REFERENCE
+===================================================== */
+
 function deletePart(id){
 
-let p=db.parts.find(
-x=>x.id===id
-);
+const part =
+db.parts.find(function(p){
+return p.id === id;
+});
 
-if(p.reserved>0){
+
+if(!part)
+return;
+
+
+if(Number(part.reserved || 0) > 0){
 
 alert(
 "Impossible : cette référence est réservée par un devis."
@@ -2147,11 +2931,19 @@ return;
 
 }
 
-if(confirm("Supprimer cette référence ?")){
 
-db.parts=db.parts.filter(
-x=>x.id!==id
-);
+if(
+confirm(
+"Supprimer la référence " +
+part.ref +
+" ?"
+)
+){
+
+db.parts =
+db.parts.filter(function(p){
+return p.id !== id;
+});
 
 persist();
 
@@ -2160,83 +2952,156 @@ persist();
 }
 
 
+/* =====================================================
+   AFFICHER STOCK
+===================================================== */
+
 function renderStock(){
 
-let search=
+const search =
 (
-document.getElementById("search")
-?.value||""
-).toLowerCase();
-
-let arr=db.parts.filter(
-p=>
-(
-p.ref+" "+
-p.name+" "+
-(p.brand||"")
+$("search")?.value || ""
 )
 .toLowerCase()
-.includes(search)
-);
+.trim();
 
-refs.textContent=db.parts.length;
 
-qty.textContent=
+const parts =
+db.parts.filter(function(part){
+
+const text =
+(
+part.ref + " " +
+part.name + " " +
+(part.brand || "")
+)
+.toLowerCase();
+
+
+return text.includes(search);
+
+});
+
+
+$("refs")
+.textContent =
+db.parts.length;
+
+
+$("qty")
+.textContent =
 db.parts.reduce(
-(s,p)=>s+p.qty,
+function(total,part){
+return total +
+Number(part.qty || 0);
+},
 0
 );
 
-reserved.textContent=
+
+$("reserved")
+.textContent =
 db.parts.reduce(
-(s,p)=>s+p.reserved,
+function(total,part){
+return total +
+Number(part.reserved || 0);
+},
 0
 );
 
-value.textContent=euro(
+
+$("value")
+.textContent =
+euro(
 db.parts.reduce(
-(s,p)=>s+p.qty*p.buy,
+function(total,part){
+
+return total +
+Number(part.qty || 0) *
+Number(part.buy || 0);
+
+},
 0
 )
 );
 
-stockBody.innerHTML=
-arr.length
 
-?
+if(!parts.length){
 
-arr.map(p=>{
+$("stockBody").innerHTML=`
 
-let available=
-p.qty-p.reserved;
+<tr>
 
-let cls=
-available<=0
-?"zero"
-:
-available<=2
-?"low"
-:"ok";
+<td colspan="9">
+
+<div class="empty">
+
+Aucune référence enregistrée.
+
+</div>
+
+</td>
+
+</tr>
+
+`;
+
+return;
+
+}
+
+
+$("stockBody").innerHTML =
+parts.map(function(part){
+
+const available =
+Number(part.qty || 0) -
+Number(part.reserved || 0);
+
+
+let className =
+"ok";
+
+
+if(available <= 0)
+className="zero";
+else if(available <= 2)
+className="low";
+
 
 return `
 
 <tr>
 
-<td><b>${esc(p.ref)}</b></td>
+<td>
+<b>${esc(part.ref)}</b>
+</td>
 
-<td>${esc(p.name)}</td>
+<td>
+${esc(part.name)}
+</td>
 
-<td>${esc(p.brand||"—")}</td>
+<td>
+${esc(part.brand || "—")}
+</td>
 
-<td>${euro(p.buy)}</td>
+<td>
+${euro(part.buy)}
+</td>
 
-<td>${euro(p.sell)}</td>
+<td>
+${euro(part.sell)}
+</td>
 
-<td>${p.qty}</td>
+<td>
+${part.qty}
+</td>
 
-<td>${p.reserved}</td>
+<td>
+${part.reserved}
+</td>
 
-<td class="${cls}">
+<td class="${className}">
 ${available}
 </td>
 
@@ -2244,14 +3109,18 @@ ${available}
 
 <button
 class="secondary"
-onclick="openPart('${p.id}')">
+onclick="openPart('${part.id}')">
+
 Modifier
+
 </button>
 
 <button
 class="danger"
-onclick="deletePart('${p.id}')">
+onclick="deletePart('${part.id}')">
+
 ×
+
 </button>
 
 </td>
@@ -2260,98 +3129,133 @@ onclick="deletePart('${p.id}')">
 
 `;
 
-}).join("")
-
-:
-
-`
-
-<tr>
-<td colspan="9">
-
-<div class="empty">
-Aucune référence enregistrée.
-</div>
-
-</td>
-</tr>
-
-`;
+}).join("");
 
 }
 
 
-/* =========================
-   DEVIS
-========================= */
+/* =====================================================
+   OUVRIR DEVIS
+===================================================== */
 
 function openQuote(){
 
 linesData=[];
 
 selectedClientId=null;
+
 selectedVehicleId=null;
 
-qClientSearch.value="";
 
-selectedClient.innerHTML=
+$("qClientSearch")
+.value="";
+
+
+$("clientResults")
+.innerHTML="";
+
+
+$("selectedClient")
+.innerHTML =
 "Aucun client sélectionné.";
 
-qVehicle.innerHTML=`
+
+$("qVehicle").innerHTML=`
+
 <option value="">
 Sélectionne d'abord un client
 </option>
+
 `;
 
-clientResults.innerHTML="";
 
-renderLines();
+addLine();
 
-quoteModal.classList.add("show");
+
+$("quoteModal")
+.classList.add("show");
 
 }
 
+
+/* =====================================================
+   AJOUTER LIGNE
+===================================================== */
 
 function addLine(){
 
 linesData.push({
-partId:"",
+
+partId:null,
+
 qty:1,
+
 price:0,
+
 ref:"",
+
 name:""
+
 });
+
 
 renderLines();
 
 }
 
 
-function removeLine(i){
+/* =====================================================
+   SUPPRIMER LIGNE
+===================================================== */
 
-let line=linesData[i];
+function removeLine(index){
+
+const line =
+linesData[index];
+
+
+if(!line)
+return;
+
 
 if(line.partId){
 
-let p=db.parts.find(
-x=>x.id===line.partId
-);
+const part =
+db.parts.find(function(p){
+return p.id === line.partId;
+});
 
-if(p){
 
-p.reserved=
+if(part){
+
+part.reserved =
 Math.max(
 0,
-p.reserved-line.qty
+Number(part.reserved || 0) -
+Number(line.qty || 0)
 );
 
 }
 
 }
 
-linesData.splice(i,1);
+
+linesData.splice(
+index,
+1
+);
+
+
+if(!linesData.length){
+
+addLine();
+
+}else{
 
 renderLines();
+
+}
+
 
 localStorage.setItem(
 KEY,
@@ -2361,441 +3265,297 @@ JSON.stringify(db)
 }
 
 
+/* =====================================================
+   RENDU LIGNES DEVIS
+===================================================== */
+
 function renderLines(){
 
-    if(!linesData.length){
+const box =
+$("lines");
 
-        lines.innerHTML=`
-        <div class="empty">
-            Aucune ligne.<br><br>
-            Ajoute une pièce ou un article.
-        </div>
-        `;
 
-        total.textContent=euro(0);
+if(!linesData.length){
 
-        return;
-    }
+box.innerHTML=`
 
+<div class="empty">
+Aucune ligne.
+</div>
 
-    /* Liste de toutes les références du magasin */
-
-    let datalist=`
-
-    <datalist id="partsDatalist">
-
-    ${
-        db.parts.map(
-            p=>`
-
-            <option value="${esc(p.ref)}">
-                ${esc(p.name)}
-            </option>
-
-            `
-        ).join("")
-    }
-
-    </datalist>
-
-    `;
-
-
-    lines.innerHTML=
-    datalist +
-
-    linesData.map(
-        (l,i)=>{
-
-            let selectedPart=
-                l.partId
-                ?
-                db.parts.find(
-                    p=>p.id===l.partId
-                )
-                :
-                null;
-
-
-            return `
-
-            <div class="line">
-
-                <div>
-
-                    <input
-                        class="field"
-                        list="partsDatalist"
-                        placeholder="🔍 Référence ou pièce..."
-                        value="${
-                            selectedPart
-                            ?
-                            esc(selectedPart.ref)
-                            :
-                            esc(l.ref)
-                        }"
-                        oninput="searchPart(${i},this.value)"
-                    >
-
-                    ${
-                        selectedPart
-                        ?
-
-                        `
-                        <div style="
-                            font-size:11px;
-                            color:#aaa;
-                            margin-top:4px;
-                        ">
-
-                        ${esc(selectedPart.name)}
-
-                        — Disponible :
-                        ${selectedPart.qty-selectedPart.reserved}
-
-                        </div>
-                        `
-
-                        :
-
-                        ""
-
-                    }
-
-                </div>
-
-
-                <input
-                    class="field"
-                    type="number"
-                    min="1"
-                    value="${l.qty}"
-                    onchange="changeQty(${i},this.value)"
-                >
-
-
-                <input
-                    class="field"
-                    type="number"
-                    min="0"
-                    step=".01"
-                    value="${l.price}"
-                    onchange="changePrice(${i},this.value)"
-                >
-
-
-                <button
-                    class="danger"
-                    onclick="removeLine(${i})">
-
-                    ×
-
-                </button>
-
-
-                ${
-                    !l.partId
-
-                    ?
-
-                    `
-
-                    <div class="customline">
-
-                        <input
-                            class="field"
-                            placeholder="Nouvelle référence"
-                            value="${esc(l.ref)}"
-                            onchange="linesData[${i}].ref=this.value"
-                        >
-
-                        <input
-                            class="field"
-                            placeholder="Désignation"
-                            value="${esc(l.name)}"
-                            onchange="linesData[${i}].name=this.value"
-                        >
-
-                    </div>
-
-                    `
-
-                    :
-
-                    ""
-
-                }
-
-            </div>
-
-            `;
-
-        }
-    ).join("");
-
-
-    total.textContent=
-        euro(
-            linesData.reduce(
-                (s,l)=>
-                    s+l.qty*l.price,
-                0
-            )
-        );
-
-}
-
-function searchPart(i,value){
-
-    let line=linesData[i];
-
-    value=value.trim();
-
-
-    /*
-       Si une ancienne pièce était sélectionnée
-       et que l'utilisateur commence à modifier
-       la référence, on libère la réservation.
-    */
-
-    if(line.partId){
-
-        let old=db.parts.find(
-            p=>p.id===line.partId
-        );
-
-        if(old){
-
-            old.reserved=
-                Math.max(
-                    0,
-                    old.reserved-line.qty
-                );
-
-        }
-
-        line.partId="";
-
-    }
-
-
-    /*
-       Recherche exacte de la référence
-       dans le magasin.
-    */
-
-    let part=db.parts.find(
-        p=>
-            p.ref.toLowerCase()===
-            value.toLowerCase()
-    );
-
-
-    /*
-       Si la référence existe :
-       on sélectionne automatiquement
-       la pièce du magasin.
-    */
-
-    if(part){
-
-        if(
-            part.qty-part.reserved
-            <
-            line.qty
-        ){
-
-            alert(
-                "Stock disponible insuffisant pour cette référence."
-            );
-
-            line.partId="";
-            line.ref=value;
-
-            renderLines();
-
-            return;
-
-        }
-
-
-        line.partId=part.id;
-
-        line.ref="";
-
-        line.name="";
-
-        line.price=part.sell;
-
-        part.reserved+=line.qty;
-
-    }
-
-    else{
-
-        /*
-           Si aucune référence exacte n'est trouvée,
-           on considère que l'utilisateur est peut-être
-           en train de créer une nouvelle référence.
-        */
-
-        line.ref=value;
-
-    }
-
-
-    localStorage.setItem(
-        KEY,
-        JSON.stringify(db)
-    );
-
-
-    renderLines();
-
-}
-
-lines.innerHTML=
-linesData.map((l,i)=>{
-
-let options=`
-
-<option value="">
-Nouvel article / référence
-</option>
 `;
 
-options+=db.parts.map(
-p=>`
+$("total")
+.textContent =
+euro(0);
 
-<option
-value="${p.id}"
-${p.id===l.partId?"selected":""}>
+return;
 
-${esc(p.ref)}
-—
-${esc(p.name)}
-(Disponible :
-${p.qty-p.reserved})
+}
 
-</option>
 
-`
-).join("");
+box.innerHTML =
+linesData.map(function(line,index){
 
-return `
+const selectedPart =
+line.partId
+?
+db.parts.find(function(part){
+return part.id === line.partId;
+})
+:
+null;
+
+
+let referenceValue =
+selectedPart
+?
+selectedPart.ref
+:
+line.ref;
+
+
+let html = `
 
 <div class="line">
 
-<select
+<div>
+
+<input
 class="field"
-onchange="choosePart(${i},this.value)">
+list="partsDatalist"
+placeholder="🔍 Référence ou pièce..."
+value="${esc(referenceValue)}"
+oninput="searchPart(${index},this.value)">
 
-${options}
+`;
 
-</select>
+
+if(selectedPart){
+
+const available =
+Number(selectedPart.qty || 0) -
+Number(selectedPart.reserved || 0);
+
+
+html += `
+
+<div style="
+font-size:11px;
+color:#aaa;
+margin-top:4px">
+
+${esc(selectedPart.name)}
+
+—
+
+Disponible après réservation :
+${available}
+
+</div>
+
+`;
+
+}
+
+
+html += `
+
+</div>
+
 
 <input
 class="field"
 type="number"
 min="1"
-value="${l.qty}"
-onchange="changeQty(${i},this.value)">
+value="${line.qty}"
+onchange="changeQty(${index},this.value)">
+
 
 <input
 class="field"
 type="number"
 min="0"
 step=".01"
-value="${l.price}"
-onchange="changePrice(${i},this.value)">
+value="${line.price}"
+onchange="changePrice(${index},this.value)">
+
 
 <button
 class="danger"
-onclick="removeLine(${i})">
+type="button"
+onclick="removeLine(${index})">
+
 ×
+
 </button>
 
-${
-!l.partId
-?
-`
+`;
+
+
+if(!selectedPart){
+
+html += `
 
 <div class="customline">
 
 <input
 class="field"
-placeholder="Référence"
-value="${esc(l.ref)}"
-onchange="linesData[${i}].ref=this.value">
+placeholder="Nouvelle référence"
+value="${esc(line.ref)}"
+onchange="updateNewLineRef(${index},this.value)">
 
 <input
 class="field"
 placeholder="Désignation"
-value="${esc(l.name)}"
-onchange="linesData[${i}].name=this.value">
-
-</div>
-
-`
-:""
-}
+value="${esc(line.name)}"
+onchange="updateNewLineName(${index},this.value)">
 
 </div>
 
 `;
 
+}
+
+
+html += `
+
+</div>
+
+`;
+
+
+return html;
+
 }).join("");
 
-total.textContent=
-euro(
-linesData.reduce(
-(s,l)=>s+l.qty*l.price,
-0
-)
+
+/* datalist des références magasin */
+
+let datalist =
+document.getElementById("partsDatalist");
+
+
+if(!datalist){
+
+datalist =
+document.createElement("datalist");
+
+datalist.id =
+"partsDatalist";
+
+document.body.appendChild(
+datalist
 );
 
 }
 
 
-function choosePart(i,id){
+datalist.innerHTML =
+db.parts.map(function(part){
 
-let line=linesData[i];
+return `
 
-if(line.partId){
+<option value="${esc(part.ref)}">
 
-let old=db.parts.find(
-p=>p.id===line.partId
-);
+`;
 
-if(old){
+}).join("");
 
-old.reserved=
+
+updateQuoteTotal();
+
+}
+
+
+/* =====================================================
+   RECHERCHE PIECE
+===================================================== */
+
+function searchPart(index,value){
+
+const line =
+linesData[index];
+
+
+if(!line)
+return;
+
+
+const text =
+value
+.trim();
+
+
+/*
+Si la ligne avait déjà une pièce
+et que l'utilisateur modifie la référence,
+on libère l'ancienne réservation.
+*/
+
+if(
+line.partId
+){
+
+const oldPart =
+db.parts.find(function(part){
+return part.id === line.partId;
+});
+
+
+if(oldPart){
+
+oldPart.reserved =
 Math.max(
 0,
-old.reserved-line.qty
+Number(oldPart.reserved || 0) -
+Number(line.qty || 0)
 );
 
 }
 
+
+line.partId=null;
+
 }
 
-line.partId=id;
 
-if(id){
+/*
+On cherche une référence exacte.
+*/
 
-let p=db.parts.find(
-x=>x.id===id
+const part =
+db.parts.find(function(part){
+
+return (
+String(part.ref || "")
+.toLowerCase() ===
+text.toLowerCase()
 );
+
+});
+
+
+if(part){
+
+const available =
+Number(part.qty || 0) -
+Number(part.reserved || 0);
+
 
 if(
-p.qty-p.reserved<line.qty
+available <
+Number(line.qty || 0)
 ){
 
-line.partId="";
-
 alert(
-"Stock disponible insuffisant."
+"Stock disponible insuffisant pour la référence " +
+part.ref +
+"."
 );
+
+line.partId=null;
+line.ref=text;
 
 renderLines();
 
@@ -2803,84 +3563,207 @@ return;
 
 }
 
-p.reserved+=line.qty;
 
-line.price=p.sell;
+line.partId =
+part.id;
+
 line.ref="";
+
 line.name="";
 
-}
+line.price =
+Number(part.sell || 0);
 
-renderLines();
+
+part.reserved =
+Number(part.reserved || 0) +
+Number(line.qty || 0);
+
 
 localStorage.setItem(
 KEY,
 JSON.stringify(db)
 );
 
+
+renderLines();
+
+return;
+
 }
 
 
-function changeQty(i,value){
+/*
+Si aucune référence n'est trouvée,
+on considère que c'est une nouvelle référence.
+*/
 
-let newQty=Math.max(
+line.ref=text;
+
+line.partId=null;
+
+renderLines();
+
+}
+
+
+/* =====================================================
+   NOUVEL ARTICLE
+===================================================== */
+
+function updateNewLineRef(index,value){
+
+if(linesData[index])
+linesData[index].ref =
+value;
+
+}
+
+
+function updateNewLineName(index,value){
+
+if(linesData[index])
+linesData[index].name =
+value;
+
+}
+
+
+/* =====================================================
+   MODIFIER QUANTITE
+===================================================== */
+
+function changeQty(index,value){
+
+const line =
+linesData[index];
+
+
+if(!line)
+return;
+
+
+const newQty =
+Math.max(
 1,
-+value||1
+Number(value || 1)
 );
 
-let line=linesData[i];
 
 if(line.partId){
 
-let p=db.parts.find(
-x=>x.id===line.partId
-);
+const part =
+db.parts.find(function(p){
+return p.id === line.partId;
+});
 
-let delta=
-newQty-line.qty;
 
-if(
-delta>0 &&
-p.qty-p.reserved<delta
-){
+if(part){
+
+const difference =
+newQty -
+Number(line.qty || 0);
+
+
+if(difference > 0){
+
+const available =
+Number(part.qty || 0) -
+Number(part.reserved || 0);
+
+
+if(available < difference){
 
 alert(
 "Stock disponible insuffisant."
 );
 
+renderLines();
+
 return;
 
 }
 
-p.reserved+=delta;
+}
+
+
+part.reserved =
+Number(part.reserved || 0) +
+difference;
 
 }
 
-line.qty=newQty;
+}
 
-renderLines();
+
+line.qty =
+newQty;
+
 
 localStorage.setItem(
 KEY,
 JSON.stringify(db)
 );
 
-}
-
-
-function changePrice(i,value){
-
-linesData[i].price=
-Math.max(0,+value||0);
 
 renderLines();
 
 }
 
 
-/* =========================
+/* =====================================================
+   MODIFIER PRIX
+===================================================== */
+
+function changePrice(index,value){
+
+if(!linesData[index])
+return;
+
+
+linesData[index].price =
+Math.max(
+0,
+Number(value || 0)
+);
+
+
+updateQuoteTotal();
+
+}
+
+
+/* =====================================================
+   TOTAL DEVIS
+===================================================== */
+
+function updateQuoteTotal(){
+
+const total =
+linesData.reduce(
+function(sum,line){
+
+return sum +
+(
+Number(line.qty || 0) *
+Number(line.price || 0)
+);
+
+},
+0
+);
+
+
+$("total")
+.textContent =
+euro(total);
+
+}
+
+
+/* =====================================================
    ENREGISTRER DEVIS
-========================= */
+===================================================== */
 
 function saveQuote(){
 
@@ -2894,6 +3777,46 @@ return;
 
 }
 
+
+const client =
+db.clients.find(function(c){
+return c.id === selectedClientId;
+});
+
+
+if(!client)
+return;
+
+
+if(!selectedVehicleId){
+
+alert(
+"Sélectionne un véhicule."
+);
+
+return;
+
+}
+
+
+const vehicle =
+(client.vehicles || [])
+.find(function(v){
+return v.id === selectedVehicleId;
+});
+
+
+if(!vehicle){
+
+alert(
+"Le véhicule sélectionné est introuvable."
+);
+
+return;
+
+}
+
+
 if(!linesData.length){
 
 alert(
@@ -2904,18 +3827,30 @@ return;
 
 }
 
-for(let line of linesData){
 
-if(
-!line.partId &&
-(
-!line.ref.trim()||
-!line.name.trim()
-)
-){
+/*
+Validation des nouvelles références
+*/
+
+for(const line of linesData){
+
+if(!line.partId){
+
+if(!line.ref.trim()){
 
 alert(
-"Renseigne la référence et la désignation du nouvel article."
+"Renseigne une référence."
+);
+
+return;
+
+}
+
+
+if(!line.name.trim()){
+
+alert(
+"Renseigne la désignation de la nouvelle pièce."
 );
 
 return;
@@ -2924,62 +3859,105 @@ return;
 
 }
 
+}
 
-/* nouvelles références */
 
-for(let line of linesData){
+/*
+Créer les nouvelles références
+*/
+
+for(const line of linesData){
 
 if(!line.partId){
 
-let p=db.parts.find(
-x=>
-x.ref.toLowerCase()===
+let part =
+db.parts.find(function(p){
+
+return (
+p.ref.toLowerCase() ===
 line.ref.trim().toLowerCase()
 );
 
-if(!p){
+});
 
-p={
-id:crypto.randomUUID(),
+
+if(!part){
+
+part={
+
+id:uid(),
+
 ref:line.ref.trim(),
+
 name:line.name.trim(),
+
 brand:"",
+
 buy:0,
-sell:line.price,
+
+sell:
+Number(line.price || 0),
+
 qty:0,
+
 reserved:0
+
 };
 
-db.parts.push(p);
-
-}
-
-line.partId=p.id;
-
-p.reserved+=line.qty;
-
-}
+db.parts.push(part);
 
 }
 
 
-let client=
-db.clients.find(
-x=>x.id===selectedClientId
+/*
+La nouvelle référence est maintenant
+associée à la ligne.
+*/
+
+line.partId =
+part.id;
+
+
+/*
+Elle est réservée.
+*/
+
+part.reserved =
+Number(part.reserved || 0) +
+Number(line.qty || 0);
+
+}
+
+}
+
+
+/*
+Calcul total
+*/
+
+const total =
+linesData.reduce(
+function(sum,line){
+
+return sum +
+Number(line.qty || 0) *
+Number(line.price || 0);
+
+},
+0
 );
 
-let vehicle=
-client?.vehicles?.find(
-x=>x.id===selectedVehicleId
-);
 
+/*
+Créer devis
+*/
 
-let quote={
+const quote={
 
-id:crypto.randomUUID(),
+id:uid(),
 
 num:
-"DEV-"+
+"DEV-" +
 String(db.seq.quote++)
 .padStart(4,"0"),
 
@@ -2993,21 +3971,23 @@ client:
 clientName(client),
 
 vehicleId:
-vehicle?.id||"",
+vehicle.id,
 
 vehicle:
-vehicle
-?
-`${vehicle.reg} ${vehicle.brand||""} ${vehicle.model||""}`.trim()
-:"",
+(
+vehicle.reg +
+" " +
+(vehicle.brand || "") +
+" " +
+(vehicle.model || "")
+).trim(),
 
 total:
-linesData.reduce(
-(s,l)=>s+l.qty*l.price,
-0
-),
 
-status:"En attente",
+total,
+
+status:
+"En attente",
 
 lines:
 JSON.parse(
@@ -3017,88 +3997,125 @@ JSON.stringify(linesData)
 };
 
 
-db.quotes.push(quote);
+db.quotes.push(
+quote
+);
+
 
 persist();
 
-closeModal("quoteModal");
+closeModal(
+"quoteModal"
+);
 
 go("devis");
 
 }
 
 
-/* =========================
-   ANNULATION DEVIS
-========================= */
+/* =====================================================
+   ANNULER DEVIS
+===================================================== */
 
 function cancelQuote(id){
 
-let q=db.quotes.find(
-x=>x.id===id
-);
+const quote =
+db.quotes.find(function(q){
+return q.id === id;
+});
+
 
 if(
-!q||
-q.status!=="En attente"
+!quote ||
+quote.status !== "En attente"
 )
 return;
 
-q.lines.forEach(line=>{
 
-let p=db.parts.find(
-x=>x.id===line.partId
-);
+if(
+!confirm(
+"Annuler ce devis ? Les pièces réservées seront libérées."
+)
+)
+return;
 
-if(p){
 
-p.reserved=
+(quote.lines || [])
+.forEach(function(line){
+
+const part =
+db.parts.find(function(p){
+return p.id === line.partId;
+});
+
+
+if(part){
+
+part.reserved =
 Math.max(
 0,
-p.reserved-line.qty
+Number(part.reserved || 0) -
+Number(line.qty || 0)
 );
 
 }
 
 });
 
-q.status="Annulé";
+
+quote.status =
+"Annulé";
+
 
 persist();
 
 }
 
 
-/* =========================
-   FACTURATION
-========================= */
+/* =====================================================
+   TRANSFORMER DEVIS EN FACTURE
+===================================================== */
 
 function invoiceQuote(id){
 
-let q=db.quotes.find(
-x=>x.id===id
-);
+const quote =
+db.quotes.find(function(q){
+return q.id === id;
+});
+
 
 if(
-!q||
-q.status!=="En attente"
+!quote ||
+quote.status !== "En attente"
 )
 return;
 
-for(let line of q.lines){
 
-let p=db.parts.find(
-x=>x.id===line.partId
-);
+/*
+Vérification du stock physique.
+*/
+
+for(const line of quote.lines){
+
+const part =
+db.parts.find(function(p){
+return p.id === line.partId;
+});
+
+
+if(!part)
+continue;
+
 
 if(
-p&&
-p.qty<line.qty
+Number(part.qty || 0) <
+Number(line.qty || 0)
 ){
 
 alert(
-"Stock physique insuffisant pour : "+
-p.ref
+"Stock physique insuffisant pour la référence " +
+part.ref +
+"."
 );
 
 return;
@@ -3107,51 +4124,88 @@ return;
 
 }
 
-q.lines.forEach(line=>{
 
-let p=db.parts.find(
-x=>x.id===line.partId
-);
+/*
+Sortie du stock
+*/
 
-if(p){
+quote.lines.forEach(function(line){
 
-p.qty-=line.qty;
+const part =
+db.parts.find(function(p){
+return p.id === line.partId;
+});
 
-p.reserved=
+
+if(!part)
+return;
+
+
+part.qty =
 Math.max(
 0,
-p.reserved-line.qty
+Number(part.qty || 0) -
+Number(line.qty || 0)
 );
 
-}
+
+part.reserved =
+Math.max(
+0,
+Number(part.reserved || 0) -
+Number(line.qty || 0)
+);
 
 });
 
-q.status="Facturé";
 
-db.invoices.push({
+quote.status =
+"Facturé";
 
-id:crypto.randomUUID(),
+
+/*
+Créer facture
+*/
+
+const invoice={
+
+id:uid(),
 
 num:
-"FAC-"+
+"FAC-" +
 String(db.seq.invoice++)
 .padStart(4,"0"),
 
 date:
 new Date().toISOString(),
 
-client:q.client,
+client:
+quote.client,
 
-vehicle:q.vehicle,
+vehicle:
+quote.vehicle,
 
-total:q.total,
+total:
+quote.total,
 
-status:"À payer",
+status:
+"À payer",
 
-quoteId:q.id
+quoteId:
+quote.id,
 
-});
+lines:
+JSON.parse(
+JSON.stringify(quote.lines)
+)
+
+};
+
+
+db.invoices.push(
+invoice
+);
+
 
 persist();
 
@@ -3160,47 +4214,85 @@ go("factures");
 }
 
 
-/* =========================
-   DEVIS AFFICHAGE
-========================= */
+/* =====================================================
+   AFFICHER DEVIS
+===================================================== */
 
 function renderQuotes(){
 
-quoteBody.innerHTML=
-db.quotes.length
+const body =
+$("quoteBody");
 
-?
 
-db.quotes
-.slice()
-.reverse()
-.map(q=>`
+if(!db.quotes.length){
+
+body.innerHTML=`
 
 <tr>
 
-<td><b>${q.num}</b></td>
+<td colspan="7">
 
-<td>${fmtDate(q.date)}</td>
+<div class="empty">
 
-<td>${esc(q.client)}</td>
+Aucun devis.
 
-<td>${esc(q.vehicle||"—")}</td>
+</div>
 
-<td>${euro(q.total)}</td>
+</td>
+
+</tr>
+
+`;
+
+return;
+
+}
+
+
+body.innerHTML =
+db.quotes
+.slice()
+.reverse()
+.map(function(quote){
+
+let badge="wait";
+
+if(quote.status === "Facturé")
+badge="done";
+
+if(quote.status === "Annulé")
+badge="cancel";
+
+
+return `
+
+<tr>
+
+<td>
+<b>${esc(quote.num)}</b>
+</td>
+
+<td>
+${fmtDate(quote.date)}
+</td>
+
+<td>
+${esc(quote.client)}
+</td>
+
+<td>
+${esc(quote.vehicle || "—")}
+</td>
+
+<td>
+${euro(quote.total)}
+</td>
 
 <td>
 
-<span class="badge
-${
-q.status==="Facturé"
-?"done"
-:
-q.status==="Annulé"
-?"cancel"
-:"wait"
-}">
+<span class="badge ${badge}">
 
-${q.status}
+${esc(quote.status)}
 
 </span>
 
@@ -3209,7 +4301,7 @@ ${q.status}
 <td>
 
 ${
-q.status==="En attente"
+quote.status === "En attente"
 
 ?
 
@@ -3217,80 +4309,112 @@ q.status==="En attente"
 
 <button
 class="secondary"
-onclick="invoiceQuote('${q.id}')">
+onclick="invoiceQuote('${quote.id}')">
+
 → Facturer
+
 </button>
 
 <button
 class="danger"
-onclick="cancelQuote('${q.id}')">
+onclick="cancelQuote('${quote.id}')">
+
 Annuler
+
 </button>
 
 `
 
-:""
+:
+
+""
+
 }
 
 </td>
 
-</tr>
-
-`).join("")
-
-:
-
-`
-
-<tr>
-<td colspan="7">
-
-<div class="empty">
-Aucun devis.
-</div>
-
-</td>
 </tr>
 
 `;
 
+}).join("");
+
 }
 
 
-/* =========================
+/* =====================================================
    FACTURES
-========================= */
+===================================================== */
 
 function renderInvoices(){
 
-invoiceBody.innerHTML=
-db.invoices.length
+const body =
+$("invoiceBody");
 
-?
 
-db.invoices
-.slice()
-.reverse()
-.map(f=>`
+if(!db.invoices.length){
+
+body.innerHTML=`
 
 <tr>
 
-<td><b>${f.num}</b></td>
+<td colspan="7">
 
-<td>${fmtDate(f.date)}</td>
+<div class="empty">
 
-<td>${esc(f.client)}</td>
+Aucune facture.
 
-<td>${esc(f.vehicle||"—")}</td>
+</div>
 
-<td>${euro(f.total)}</td>
+</td>
 
-<td>${f.status}</td>
+</tr>
+
+`;
+
+return;
+
+}
+
+
+body.innerHTML =
+db.invoices
+.slice()
+.reverse()
+.map(function(invoice){
+
+return `
+
+<tr>
+
+<td>
+<b>${esc(invoice.num)}</b>
+</td>
+
+<td>
+${fmtDate(invoice.date)}
+</td>
+
+<td>
+${esc(invoice.client)}
+</td>
+
+<td>
+${esc(invoice.vehicle || "—")}
+</td>
+
+<td>
+${euro(invoice.total)}
+</td>
+
+<td>
+${esc(invoice.status)}
+</td>
 
 <td>
 
 ${
-f.status!=="Payée"
+invoice.status !== "Payée"
 
 ?
 
@@ -3298,171 +4422,237 @@ f.status!=="Payée"
 
 <button
 class="secondary"
-onclick="pay('${f.id}')">
+onclick="pay('${invoice.id}')">
+
 Marquer payée
+
 </button>
 
 `
-:""
+
+:
+
+""
+
 }
 
 </td>
 
-</tr>
-
-`).join("")
-
-:
-
-`
-
-<tr>
-<td colspan="7">
-
-<div class="empty">
-Aucune facture.
-</div>
-
-</td>
 </tr>
 
 `;
 
+}).join("");
+
 }
 
 
+/* =====================================================
+   PAYER FACTURE
+===================================================== */
+
 function pay(id){
 
-let f=db.invoices.find(
-x=>x.id===id
-);
+const invoice =
+db.invoices.find(function(i){
+return i.id === id;
+});
 
-if(f){
 
-f.status="Payée";
+if(!invoice)
+return;
+
+
+invoice.status =
+"Payée";
+
 
 persist();
 
 }
 
-}
 
-
-/* =========================
-   DASHBOARD
-========================= */
+/* =====================================================
+   TABLEAU DE BORD
+===================================================== */
 
 function renderDashboard(){
 
-pending.textContent=
-db.quotes.filter(
-q=>q.status==="En attente"
-).length;
+const now =
+new Date();
 
-unpaid.textContent=
-euro(
-db.invoices
-.filter(
-f=>f.status!=="Payée"
-)
-.reduce(
-(s,f)=>s+f.total,
+
+const monthlyInvoices =
+db.invoices.filter(function(invoice){
+
+const date =
+new Date(invoice.date);
+
+
+return (
+date.getMonth() === now.getMonth() &&
+date.getFullYear() === now.getFullYear()
+);
+
+});
+
+
+const ca =
+monthlyInvoices.reduce(
+function(total,invoice){
+
+return total +
+Number(invoice.total || 0);
+
+},
 0
-)
 );
 
-stockcount.textContent=
-db.parts.reduce(
-(s,p)=>s+p.qty,
-0
-);
 
-let now=new Date();
+$("ca")
+.textContent =
+euro(ca);
 
-ca.textContent=
-euro(
+
+$("pending")
+.textContent =
+db.quotes.filter(function(quote){
+
+return quote.status === "En attente";
+
+}).length;
+
+
+const unpaid =
 db.invoices
-.filter(f=>{
+.filter(function(invoice){
 
-let d=new Date(f.date);
-
-return(
-d.getMonth()===now.getMonth()&&
-d.getFullYear()===now.getFullYear()
-);
+return invoice.status !== "Payée";
 
 })
 .reduce(
-(s,f)=>s+f.total,
+function(total,invoice){
+
+return total +
+Number(invoice.total || 0);
+
+},
 0
-)
 );
 
-recent.innerHTML=
-db.quotes.length
 
-?
+$("unpaid")
+.textContent =
+euro(unpaid);
 
+
+$("stockcount")
+.textContent =
+db.parts.reduce(
+function(total,part){
+
+return total +
+Number(part.qty || 0);
+
+},
+0
+);
+
+
+const recent =
 db.quotes
-.slice(-5)
+.slice()
 .reverse()
-.map(q=>`
+.slice(0,5);
+
+
+if(!recent.length){
+
+$("recent").innerHTML=`
+
+<div class="empty">
+
+Aucun devis.
+
+</div>
+
+`;
+
+return;
+
+}
+
+
+$("recent").innerHTML =
+recent.map(function(quote){
+
+return `
 
 <div style="
 padding:10px 0;
 border-bottom:1px solid var(--border)">
 
-<b>${q.num}</b>
+<b>
+${esc(quote.num)}
+</b>
+
 —
-${esc(q.client)}
+${esc(quote.client)}
 
 <span style="float:right">
-${euro(q.total)}
+
+${euro(quote.total)}
+
 </span>
 
 <small style="
 display:block;
 color:#888">
 
-${esc(q.vehicle||"")}
+${esc(quote.vehicle || "")}
+
 —
-${q.status}
+${esc(quote.status)}
 
 </small>
 
 </div>
 
-`).join("")
-
-:
-
-`
-
-<div class="empty">
-Aucun devis.
-</div>
-
 `;
+
+}).join("");
 
 }
 
 
-/* =========================
-   REFRESH
-========================= */
+/* =====================================================
+   REFRESH GENERAL
+===================================================== */
 
 function refresh(){
 
-renderStock();
-renderClients();
-renderVehicles();
-renderQuotes();
-renderInvoices();
 renderDashboard();
+
+renderClients();
+
+renderVehicles();
+
+renderStock();
+
+renderQuotes();
+
+renderInvoices();
 
 }
 
+
+/* =====================================================
+   LANCEMENT
+===================================================== */
+
 refresh();
+
+go("dashboard");
 
 </script>
 
