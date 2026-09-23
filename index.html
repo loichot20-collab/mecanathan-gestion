@@ -7,7 +7,7 @@
 <title>MecaNathan Gestion V5 Cloud</title>
 
 <script
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+src="https://unpkg.com/@supabase/supabase-js@2/dist/umd/supabase.min.js"
 onerror="window.supabaseLoadError=true">
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
@@ -5607,7 +5607,7 @@ x=>x.id==="main"
 );
 
 
-return normalize({
+return {
 
 clients,
 
@@ -6377,7 +6377,8 @@ if(hasCloud){
 Le cloud devient la source principale.
 */
 
-db=normalize(cloud);
+db=cloud;
+normalize();
 
 localSave();
 
