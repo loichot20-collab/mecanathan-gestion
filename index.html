@@ -1885,60 +1885,87 @@ $("loginScreen")
 
 async function login(){
 
+try{
+
 const email=
-$("loginEmail")
-.value
-.trim();
+$("loginEmail").value.trim();
 
 const password=
-$("loginPassword")
-.value;
+$("loginPassword").value;
 
 $("loginError").textContent="";
 
 if(!email || !password){
 
 $("loginError").textContent=
-"Renseigne l'e-mail et le mot de passe.";
+"⚠️ Renseigne l'e-mail et le mot de passe.";
 
 return;
 
 }
 
 $("loginBtn").disabled=true;
+$("loginBtn").textContent="Connexion...";
 
-$("loginBtn").textContent=
-"Connexion...";
+if(!sb){
 
+throw new Error(
+"Supabase n'est pas chargé. Vérifie que le fichier est bien connecté à Internet."
+);
 
-const {data,error}=
+}
+
+const result=
 await sb.auth.signInWithPassword({
-
-email,
-password
-
+email:email,
+password:password
 });
 
+console.log("Réponse Supabase :",result);
 
-$("loginBtn").disabled=false;
+if(result.error){
 
-$("loginBtn").textContent=
-"Se connecter";
+throw result.error;
 
+}
 
-if(error){
+if(!result.data || !result.data.user){
 
-$("loginError").textContent=
-error.message;
-
-return;
+throw new Error(
+"Connexion impossible : aucun utilisateur retourné."
+);
 
 }
 
 currentUser=
-data.user;
+result.data.user;
+
+$("loginError").style.color="#49c875";
+
+$("loginError").textContent=
+"✅ Connexion réussie...";
 
 await startCloud();
+
+}catch(error){
+
+console.error("ERREUR CONNEXION :",error);
+
+$("loginError").style.color="#ff858b";
+
+$("loginError").textContent=
+"❌ "+(
+error?.message||
+"Une erreur inconnue s'est produite."
+);
+
+}finally{
+
+$("loginBtn").disabled=false;
+$("loginBtn").textContent=
+"Se connecter";
+
+}
 
 }
 
