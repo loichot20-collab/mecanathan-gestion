@@ -6,7 +6,10 @@
 <meta name="theme-color" content="#0b0b0b">
 <title>MecaNathan Gestion V5 Cloud</title>
 
-<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+<script
+src="https://unpkg.com/@supabase/supabase-js@2/dist/umd/supabase.min.js"
+onerror="window.supabaseLoadError=true">
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
 <style>
@@ -1621,11 +1624,58 @@ sb_publishable_...
 const SUPABASE_KEY =
 "sb_publishable_7-JdYqHfnr0-2KfNj3OZrQ_LiOKmL1M";
 
-const sb =
-supabase.createClient(
+let sb = null;
+
+try {
+
+if(
+window.supabaseLoadError ||
+!window.supabase
+){
+
+throw new Error(
+"Supabase JS ne s'est pas chargé."
+);
+
+}
+
+sb =
+window.supabase.createClient(
 SUPABASE_URL,
 SUPABASE_KEY
 );
+
+}catch(e){
+
+console.error(
+"ERREUR INITIALISATION SUPABASE :",
+e
+);
+
+window.addEventListener(
+"DOMContentLoaded",
+()=>{
+
+const el=
+document.getElementById("loginError");
+
+if(el){
+
+el.textContent=
+"❌ "+e.message;
+
+}else{
+
+alert(
+"❌ "+e.message
+);
+
+}
+
+}
+);
+
+}
 
 
 /* =========================================================
@@ -3232,8 +3282,7 @@ type==="quote"?
 $("lines"):
 $("invoiceLines");
 
-return
-[...container.querySelectorAll(".line")]
+return [...container.querySelectorAll(".line")]
 .map(line=>{
 
 const search=
